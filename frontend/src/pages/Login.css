@@ -1,0 +1,32 @@
+.form-wrapper{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.form-interior { 
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    background: #cccccc;
+    min-width: 380px;
+}
+
+.form-interior input {
+    padding: 5px;
+    margin: 4px;
+    border: 0;
+    border-radius: 5px;
+    background: white;
+}
+
+.sign-up {
+    background: #aaaaaa;
+    min-width: 380px;
+    text-align: center;
+    color: white;
+}
