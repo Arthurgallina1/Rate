@@ -1,0 +1,22 @@
+ul {
+    list-style: none;
+}
+nav {
+    display: flex;
+
+}
+
+
+nav ul{
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+nav ul li { 
+    padding: 0px 10px 0px 10px;
+   
+    color: black;
+    text-decoration: inherit !important;
+}
