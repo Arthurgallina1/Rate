@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Login.css'
-import api from '../utils/api'
+// import './Login.css'
+import api from '../../utils/api';
+import { Link } from 'react-router-dom';
 // import { Container } from './styles';
 // import { FaUserAlt, FaLock } from 'react-icons' 
 
@@ -41,7 +42,7 @@ export default function Login( { history }) {
                     <input type="text" name="username" placeholder="Username" onChange={(e) => { setUsername(e.target.value) }} value={username}></input>
                     <input type="password" name="password" placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} value={password}></input>
                     <button type="submit" >Login</button>
-                    <p>Create an account.</p>
+                    <Link to="/register">Create an account.</Link> 
                 </div>
             </form>
         </div>

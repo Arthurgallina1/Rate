@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Dashboard.css'
-import api from '../utils/api'
-import TheNavBar from '../Components/TheNavBar'
+import api from '../../utils/api'
+import TheNavBar from '../../Components/TheNavBar'
 
 
 const Dashboard = ({ match, history }) => {

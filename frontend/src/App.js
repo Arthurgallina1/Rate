@@ -1,8 +1,19 @@
 import React from 'react';
-import Login from './pages/Login'
-import Router from './router';
+import { Router } from 'react-router-dom';
+
+import Routes from './routes/index';
+import history from './utils/history';
 
 
-const App = () => <Router />
+import GlobalStyle from './styles/global';
+
+function App() {
+    return (
+        <Router history={history}>
+            <Routes />
+            <GlobalStyle />
+        </Router>
+    )
+}
 
 export default App;
