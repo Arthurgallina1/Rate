@@ -1,18 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
+
+const schema = Yup.object().shape({
+    name: Yup.string().required('Name is required!'),
+    email: Yup.string().email('E-mail is not valid!').required('E-mail is required'),
+    password: Yup.string().required('Password is required!').min(6, 'Password muts have at least 6 characters.')
+})
 
 export default function SignUp() {
+    
+    function handleSubmit(data){
+        console.log(data);
+    }
+    
     return (
         <>
             <img src="" alt="Rate"/>
-            <form>
-                <input type="name" placeholder="Your name"/>   
-                <input type="email" placeholder="Email"/>
-                <input type="password" placeholder="Password"/>
+            <Form schema={schema} onSubmit={handleSubmit}>
+                <Input name="name" type="name" placeholder="Your name"/>   
+                <Input name="email" type="email" placeholder="Email"/>
+                <Input name="password" type="password" placeholder="Password"/>
 
                 <button type="submit">Login</button>
                 <Link to="/">Already have an account?</Link>
-            </form>
+            </Form>
         </>
     )
 }
