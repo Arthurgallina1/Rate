@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
@@ -9,6 +8,7 @@ export default createGlobalStyle`
         padding: 0;
         outline: 0;
         box-sizing: border-box;
+
     }
 
     *:focus {
@@ -17,13 +17,14 @@ export default createGlobalStyle`
 
     html, body, #root {
         height: 100%;
+        
     }
 
     body { 
         -webkit-font-smoothing: antialiased;
     }
 
-    body, button, input {
+    body, input, button {
         font: 14px 'Roboto', sans-serif;
     }
 
@@ -31,11 +32,12 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
-    ul {
+    ul { 
         list-style: none;
     }
+
     button {
         cursor: pointer;
-
     }
+
 `

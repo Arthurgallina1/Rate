@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-
+import { darken } from 'polished'
 
 export const Wrapper = styled.div`
 
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(-90deg, #00631b, #32a852);
     display: flex;
     flex-direction: column;
@@ -20,7 +20,7 @@ export const Content = styled.div`
         display: flex;
         flex-direction: column;
         margin-top: 30px;
-a
+        
         input {
             background: rgba(0,0,0, 0.1);
             border: 0;
@@ -53,6 +53,9 @@ a
             font-size: 16px;
             transition: background 0.2s;
 
+            &:hover {
+                background: ${darken(0.05, '#113d15')}
+            }
             
         }
 
