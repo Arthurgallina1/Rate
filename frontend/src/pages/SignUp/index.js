@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
-
+import api from '../../utils/api'
 const schema = Yup.object().shape({
     name: Yup.string().required('Name is required!'),
     email: Yup.string().email('E-mail is not valid!').required('E-mail is required'),
@@ -10,20 +10,32 @@ const schema = Yup.object().shape({
 })
 
 export default function SignUp() {
-    
-    function handleSubmit(data){
-        console.log(data);
+
+    const [status, setStatus] = useState('');
+    async function handleSubmit({email, password, name}){
+        try { 
+            await api.post('/user/register', {
+                email,
+                password,
+                username: name
+            })
+            setStatus('Account created succesfully, you will be redirect to login page in a few seconds.')
+        } catch (err) {
+            setStatus(err)
+        }
+        
     }
     
     return (
         <>
             <img src="" alt="Rate"/>
+            <span> {status} </span>
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="name" type="name" placeholder="Your name"/>   
                 <Input name="email" type="email" placeholder="Email"/>
                 <Input name="password" type="password" placeholder="Password"/>
 
-                <button type="submit">Login</button>
+                <button type="submit">Create account</button>
                 <Link to="/">Already have an account?</Link>
             </Form>
         </>

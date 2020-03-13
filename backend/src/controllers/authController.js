@@ -39,14 +39,14 @@ module.exports = {
                     username,
                     email, 
                     password, 
-                    confirm_password 
+                   // confirm_password 
                } = req.body;
 
-        if(password !== confirm_password){
-            return res.status(400).json({
-                msg: "Password do not match!"
-            });
-        }
+        // if(password !== confirm_password){
+        //     return res.status(400).json({
+        //         msg: "Password do not match!"
+        //     });
+        // }
 
         const userExists = await User.findOne({username: username});
         if(userExists){
