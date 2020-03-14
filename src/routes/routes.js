@@ -8,9 +8,8 @@ const routes = express.Router();
 
 routes.post('/user/register', authController.store);
 routes.post('/user/auth', authController.auth);
-routes.get('/user/show', authController.index);
 routes.use(authMiddleware);
-
+routes.get('/user/show', authController.index);
 
 routes.get('/main/friends', friendController.index)
 routes.post('/profile/:id/', friendController.store)
