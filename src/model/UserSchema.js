@@ -24,7 +24,10 @@ const UserSchema = new Schema({
         type: String,
         default: Date.now,
     },
-    friends: [{
+    following: [{
+        type: Object
+    }],
+    followers: [{
         type: Schema.Types.ObjectId, //mongo ID
         ref: 'User' //referente a qual model
     }]
