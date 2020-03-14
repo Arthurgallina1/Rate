@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { signInRequest } from '../../store/modules/auth/actions';
-import  history from '../../utils/history'
 
 const schema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
