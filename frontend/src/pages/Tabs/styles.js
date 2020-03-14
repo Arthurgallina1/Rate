@@ -16,7 +16,7 @@ export const Container = styled.div`
     }
 
     .react-tabs__tab-list {
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #aaa;
     }
 
 

@@ -8,7 +8,7 @@ export const Container = styled.div`
     
     aside {
         /* flex-grow: 1; */
-        min-width: 200;
+        min-width: 200px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -24,8 +24,8 @@ export const Container = styled.div`
     }
 
     img {
-        min-width: 200px;
-        min-height: 175px;
+        width: 200px;
+        height: 175px;
         border: 1px solid #ccc;
         border-radius: 5px;
         margin-bottom: 10px;
@@ -41,10 +41,11 @@ export const Container = styled.div`
         align-self: start;
         color: #666;
         padding: 0 0 10px 0;
+        font-size: 12px;
     }
 
     button {
-        min-width: 200px;
+        width: 200px;
         
         border: 1px solid #ccc;
         color: black;

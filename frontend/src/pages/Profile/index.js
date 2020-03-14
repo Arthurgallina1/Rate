@@ -1,18 +1,21 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Box, RightContainer, Tab } from './styles'
+import { Container, Box, RightContainer } from './styles'
 import { MdPinDrop } from 'react-icons/md'
 import TabSection from '../Tabs';
+import { useSelector } from 'react-redux'
+
 
 export default function Profile() {
-    
+    const profile = useSelector(state => state.user.profile)
+    console.log(profile);
     return (
         <Container>
             <aside>
-                <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="Profile Image"/>
+                <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
 
-                <h3>agallina</h3>
-                <h4>Arthur Gallina</h4>
+                <h3>Arthur Gallina</h3>
+                <h4>{profile.username}</h4>
 
                 <Link to="/updateprofile"> <button >Edit Profile</button></Link> 
                 <Box>

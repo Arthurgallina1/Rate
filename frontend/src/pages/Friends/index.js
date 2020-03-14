@@ -1,9 +1,12 @@
 import React from 'react'
+import FriendBox from '../../Components/FriendBox';
 
+import { Container, Box } from './styles';
 export default function Friends() {
     return (
-        <div>
-            <h1>friends</h1>
-        </div>
+        <Container>
+            <FriendBox friend={ {} }/>
+
+        </Container>
     )
 }
