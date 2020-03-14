@@ -1,25 +1,42 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import api from '../../../utils/api'
-import { signInSuccess } from './actions';
+import { signInSuccess, signFailure } from './actions';
 import history from '../../../utils/history'
+import { toast } from 'react-toastify'
 
 export function* signIn( { payload } ){
-    const { username, password } = payload;
+    try {
+        const { username, password } = payload;
 
-    const response = yield call(api.post, '/user/auth', {
-        username,
-        password
-    });
+        const response = yield call(api.post, '/user/auth', {
+            username,
+            password
+        });
 
-    const { token, user } = response.data;
+        const { token, user } = response.data;
 
-    yield put(signInSuccess(token, user))
+        api.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-    history.push('/dashboard');
-    
+        yield put(signInSuccess(token, user))
+
+        history.push('/dashboard');
+    } catch (err) {
+        toast.error('Login failed, please check your credentials.')
+        yield put(signFailure());
+    }
 }
 
+export function setToken({ payload }){
+    if(!payload) return;
+
+    const { token } = payload.auth;
+    
+    if(token){
+        api.defaults.headers['Authorization'] = `Bearer ${token}`;
+    }
+}
 
 export default all([
-    takeLatest('@auth/SIGN_IN_REQUEST', signIn)
+    takeLatest('@auth/SIGN_IN_REQUEST', signIn),
+    takeLatest('persist/REHYDRATE', setToken)
 ])

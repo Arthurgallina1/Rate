@@ -2,7 +2,8 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import AuthLayout from '../pages/_layouts/auth';
-import store from '../store';
+import DefaultLayout from '../pages/_layouts/default';
+import { store } from '../store';
 // import DefaultLayout from '../pages/_layouts/DefaultLayout';
 
 //Custom Route component
@@ -19,13 +20,15 @@ export default function RouteWrapper({component: Component, isPrivate, ...rest})
     if(signed && !isPrivate){
         return <Redirect to="/dashboard" />
     }
+
+    const Layout = signed ? DefaultLayout : AuthLayout
     //Apenas retorna o componente
     return (
         // Render: função que recebe todas propriedades da tela.
         <Route {...rest} render={props => (
-            <AuthLayout>
+            <Layout>
                 <Component />
-            </AuthLayout>
+            </Layout>
         )} />
     )
 
