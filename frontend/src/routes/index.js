@@ -5,6 +5,8 @@ import Route from './Route';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
+import Profile from '../pages/Profile';
+import UpdateProfile from '../pages/UpdateProfile';
 // import SignUp from '../pages/SignUp';
 
 
@@ -16,8 +18,8 @@ export default function Routes() {
                 <Route path="/" exact component={SignIn} />
                 <Route path="/register" exact component={SignUp} />
                 <Route path="/dashboard" exact component={Dashboard} isPrivate />
-                <Route path="/profile" exact component={Dashboard} isPrivate />
-
+                <Route path="/profile" exact component={Profile} isPrivate />
+                <Route path="/updateprofile" exact component={UpdateProfile} isPrivate />
                 <Route path="/" component={() => <h1>404</h1>}/>
             </Switch>            
         </div>

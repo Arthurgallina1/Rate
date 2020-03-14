@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 
 export const Container = styled.div`
-    background: #999;
+    background: #24292e;
     padding: 0 30px;
 `
 
@@ -20,12 +20,13 @@ export const Content = styled.div`
         img {
             margin-right: 20px;
             padding-right: 20px;
+            color: #fff;
             border-right: 1px solid #eee;
         }
 
         a {
             font-weight: bold;
-            color: #333;
+            color: #fff;
         }
     }
 
@@ -48,14 +49,14 @@ export const Profile = styled.div`
 
         strong {
             display: block;
-            color: #222;
+            color: #fff;
         }
 
         a {
             display: block;
             margin-top: 2px;
             font-size: 12px;
-            color: #333;
+            color: #fff;
         }
     }
 
