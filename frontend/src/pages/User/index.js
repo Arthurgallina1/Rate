@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../utils/api'
-import { Box } from './styles';
 import FriendBox from '../../Components/FriendBox';
 
 export default function Users() {
@@ -31,7 +30,7 @@ export default function Users() {
             // email={user.email || ''} 
             // friend={false}
             <FriendBox key={user._id}
-                friend={user} 
+                friend={user}
             />
 
 

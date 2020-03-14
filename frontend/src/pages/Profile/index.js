@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux'
 
 export default function Profile() {
     const profile = useSelector(state => state.user.profile)
-    console.log(profile);
     return (
         <Container>
             <aside>
