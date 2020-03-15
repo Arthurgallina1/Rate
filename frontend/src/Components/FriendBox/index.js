@@ -1,22 +1,19 @@
 import React, { useState } from 'react'
 import { Box } from './styles'
-import api from '../../utils/api'
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { followRequest } from '../../store/modules/friends/actions';
 
 export default function FriendBox({ friend }) {
     
     const [friendship, setFriendship] = useState(false)
     const userId = useSelector(state => state.user.profile._id);
+    const dispatch = useDispatch();
 
     async function handleAdd(){
-        const response = await api.post('/add', {
-            currentUserId: userId,
-            userToBeAddId: friend._id
-        })
-        setFriendship(true)
-        console.log(response.data);
-    
+        dispatch(followRequest(friend._id, userId ));    
     }
+
+    
     const buttonLabel = friendship ? 'UNFOLLOW' : 'FOLLOW';
     return (
         <Box>

@@ -13,16 +13,17 @@ export default function Friends() {
             setFollowing(profile)
         }
         getFollowing();
+        // console.log(profile)
    }, [])
     
     return (
         <Container>
-              { 
+              {/* { 
                 following.map(follow => (
                     <h1>{console.log(follow)} {follow.username}</h1>
                     
                 ))
-               }
+               } */}
         </Container>
     )
 }
