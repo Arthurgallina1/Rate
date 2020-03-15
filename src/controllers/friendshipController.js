@@ -14,14 +14,14 @@ module.exports = {
             const { currentUserId, userToBeAddId } = req.body;
 
             const currentUser = await User.findById(currentUserId);
-            const userToBeAdd = await User.find({ _id : userToBeAddId});
-            console.log(userToBeAdd)
+            const userToBeAdd = await User.findById(userToBeAddId);
+            
 
             if (!userToBeAdd) {
                 return res.status(400).json({ error: 'Dev not exists' })
             }
 
-            currentUser.following.push(userToBeAdd);
+            currentUser.following.push(userToBeAdd._id);
             await currentUser.save();
 
             return res.json(currentUser)
