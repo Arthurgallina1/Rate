@@ -1,6 +1,6 @@
 import produce from 'immer';
 const INITIAL_STATE = { 
-    profile: null
+    profile: null,
 }
 // Escuta action do sign in success e armazena o user
 export default function auth(state = INITIAL_STATE, action) {
@@ -13,10 +13,8 @@ export default function auth(state = INITIAL_STATE, action) {
         case '@follow/FOLLOW_SUCCESS':
             let followId = action.payload.followId;
             return produce(state, draft => {
-                // draft.profile.following.push(followId)
-                console.log(followId)
-                draft.profile.following = { followId }
-                console.log(state)
+                // draft.profile.following[followId] = {followId};
+                draft.profile.following.push(followId)
                 // console.log(action.payload.followId)
             });
 

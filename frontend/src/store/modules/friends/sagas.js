@@ -18,6 +18,7 @@ export function* assignFollow({payload}) {
 
    } catch(err) {
        toast.error('Error on following user.')
+       console.log(err)
        yield put (followFailure())
 
    }
