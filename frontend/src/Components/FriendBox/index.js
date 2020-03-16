@@ -28,8 +28,8 @@ export default function FriendBox({ friend, friendship }) {
         <Box>
             <img src=" https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
             <div>
-                <p>{friend.username}</p>
-                <h5>{friend.email}</h5>
+                <p>{friend.name}</p>
+                <h5>{friend.username}</h5>
                 <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, odio.</span>
             </div>
             <button onClick={() => handleAdd()}>{label  || buttonLabel }</button>

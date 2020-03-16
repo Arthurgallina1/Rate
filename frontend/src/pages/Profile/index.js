@@ -13,7 +13,7 @@ export default function Profile() {
             <aside>
                 <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
 
-                <h3>Arthur Gallina</h3>
+                <h3>{profile.name}</h3>
                 <h4>{profile.username}</h4>
 
                 <Link to="/updateprofile"> <button >Edit Profile</button></Link> 
