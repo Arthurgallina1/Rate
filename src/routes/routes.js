@@ -13,6 +13,7 @@ routes.use(authMiddleware);
 routes.get('/user/show', authController.index);
 routes.get('/user/info/:id', authController.show);
 routes.post('/add', friendshipController.store);
+routes.post('/user/remove', friendshipController.remove);
 routes.get('/main/friends', friendController.index)
 routes.post('/profile/:id/', friendController.store)
 

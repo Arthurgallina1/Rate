@@ -31,7 +31,24 @@ module.exports = {
                 console.log(err);
                 
             }
-        }
+        },
     
-    }
+        async remove(req, res) {
+            try {   
+                const { currentUserId, unfollowId } = req.body;
+                const currentUser = await User.findById(currentUserId);
+                const restList = currentUser.following.filter(id => {
+                    let idString = JSON.stringify(id)   
+                    const formatedId = idString.replace('"', '').replace('"', '');
+                    return formatedId !== unfollowId
+                })
+                let updatedUser = await User.findOneAndUpdate({
+                    _id: currentUserId
+                }, { following : restList })                 
 
+                return res.json(updatedUser)
+            } catch (err) {
+
+            }
+        }
+    }
