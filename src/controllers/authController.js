@@ -27,6 +27,13 @@ module.exports = {
 
     },
 
+    async show(req,res) {
+        const { id } = req.params;
+        const user = await User.findById(id);
+
+        res.status(200).json({ user })
+    },
+
     
     /**
     @route POST user/register
