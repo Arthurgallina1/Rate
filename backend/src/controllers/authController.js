@@ -41,9 +41,10 @@ module.exports = {
     @access Public
     */
     async store(req,res){
+        console.log(req.body)
         const {
                     name, 
-                    username,
+                    user,
                     email, 
                     password, 
                    // confirm_password 
@@ -55,7 +56,7 @@ module.exports = {
         //     });
         // }
 
-        const userExists = await User.findOne({username: username});
+        const userExists = await User.findOne({user: user});
         if(userExists){
             res.status(400).json({
                 msg: 'Username already exists'
@@ -71,7 +72,7 @@ module.exports = {
 
         const newUser = new User({
             name,
-            username,
+            username: user,
             password,
             email
         });

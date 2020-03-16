@@ -16,6 +16,18 @@ export default function auth(state = INITIAL_STATE, action) {
                 draft.profile.following.push(followId)
             });
 
+        case '@follow/UNFOLLOW_SUCCESS':
+            return produce(state, draft => {
+                let followId = action.payload.followId;
+                let followersList = draft.profile.following.filter(id => {     
+                    return id !== followId;
+                })
+                draft.profile.following = followersList
+                // console.log(followersList)
+                
+            });
+
+
         default:
             return state;
     }

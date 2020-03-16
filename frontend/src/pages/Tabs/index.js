@@ -16,10 +16,10 @@ export default function TabSection() {
             </TabList>
 
             <TabPanel>
-                <Friends/>
+                <h2>Overview</h2>
             </TabPanel>
             <TabPanel>
-                <h2>Overview</h2>
+                <Friends/>
             </TabPanel>
             <TabPanel>
                 <Users/>

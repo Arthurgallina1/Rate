@@ -1,21 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Box } from './styles'
 import { useSelector, useDispatch } from 'react-redux';
-import { followRequest } from '../../store/modules/friends/actions';
+import { followRequest, unfollowRequest } from '../../store/modules/friends/actions';
 
 export default function FriendBox({ friend, friendship }) {
     
-    // const [friendship, setFriendship] = useState(false)
+    const [label, setLabel] = useState(false)
     const userId = useSelector(state => state.user.profile._id);
     const dispatch = useDispatch();
 
     async function handleAdd(){
-        dispatch(followRequest(friend._id, userId ));    
+        if(friendship){
+            dispatch(unfollowRequest(friend._id, userId ));
+            setLabel('FOLLOW');
+        }
+        else {
+            dispatch(followRequest(friend._id, userId ));
+            setLabel('UNFOLLOW'); 
+         }   
+
+        
     }
 
-    
-    const buttonLabel = friendship ? 'UNFOLLOW' : 'FOLLOW';
-    return (
+
+    const buttonLabel = friendship ? 'UNFOLLOW' : 'FOLLOW'
+        return (
         <Box>
             <img src=" https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
             <div>
@@ -23,7 +32,7 @@ export default function FriendBox({ friend, friendship }) {
                 <h5>{friend.email}</h5>
                 <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, odio.</span>
             </div>
-            <button onClick={() => handleAdd()}>{buttonLabel}</button>
+            <button onClick={() => handleAdd()}>{label  || buttonLabel }</button>
         </Box>
     )
 }

@@ -15,12 +15,7 @@ export default function Users() {
                 const formattedRes = response.data.allUsers;
                 // console.log(response)
                 formattedRes.map(user => {
-                    // formattedRes.friendship = followingList.includes(user._id) ? true : false
-                    if(followingList.includes(user._id)){
-                        user.friendship = true;
-                    } else {
-                        user.friendship = false;
-                    }
+                    user.friendship = followingList.includes(user._id) ? true : false
                 })
                 await setUsers(formattedRes)
                 setLoading(false);

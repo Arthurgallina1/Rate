@@ -3,7 +3,7 @@ import api from '../../../utils/api'
 import { toast } from 'react-toastify'
 
 
-import { followSuccess, followFailure } from './actions'
+import { followSuccess, followFailure, unfollowSuccess, unfollowFailure } from './actions'
 
 export function* assignFollow({payload}) {
    try {
@@ -25,6 +25,27 @@ export function* assignFollow({payload}) {
 
 }
 
+export function* assignUnfollow({payload}) {
+    try {
+     const { followId, currentUserId } = payload;
+    
+     yield call (api.post, 'user/remove', {
+         currentUserId,
+         unfollowId: followId
+     })
+     toast.success('User unfollowed')
+     yield put (unfollowSuccess(followId));
+        
+    } catch( err) {
+        console.log(err)
+        toast.error('Couldn\'t unfollow');
+        yield put (unfollowFailure())
+    }
+
+} 
+ 
+
 export default all([
-    takeLatest('@follow/FOLLOW_REQUEST', assignFollow)
+    takeLatest('@follow/FOLLOW_REQUEST', assignFollow),
+    takeLatest('@follow/UNFOLLOW_REQUEST', assignUnfollow)
 ]); 
