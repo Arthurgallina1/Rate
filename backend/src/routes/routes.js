@@ -11,7 +11,7 @@ routes.post('/user/register', authController.store);
 routes.post('/user/auth', authController.auth);
 routes.use(authMiddleware);
 routes.get('/user/show', authController.index);
-
+routes.get('/user/info/:id', authController.show);
 routes.post('/add', friendshipController.store);
 routes.get('/main/friends', friendController.index)
 routes.post('/profile/:id/', friendController.store)

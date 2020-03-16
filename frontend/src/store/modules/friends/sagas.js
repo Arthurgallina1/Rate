@@ -9,7 +9,7 @@ export function* assignFollow({payload}) {
    try {
     const { followId, currentUserId } = payload;
 
-    const response = yield call(api.post, 'add', {
+    yield call(api.post, 'add', {
         userToBeAddId: followId,
         currentUserId
     })

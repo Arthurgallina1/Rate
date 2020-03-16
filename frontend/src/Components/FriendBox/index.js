@@ -3,9 +3,9 @@ import { Box } from './styles'
 import { useSelector, useDispatch } from 'react-redux';
 import { followRequest } from '../../store/modules/friends/actions';
 
-export default function FriendBox({ friend }) {
+export default function FriendBox({ friend, friendship }) {
     
-    const [friendship, setFriendship] = useState(false)
+    // const [friendship, setFriendship] = useState(false)
     const userId = useSelector(state => state.user.profile._id);
     const dispatch = useDispatch();
 

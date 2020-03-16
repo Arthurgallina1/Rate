@@ -13,9 +13,7 @@ export default function auth(state = INITIAL_STATE, action) {
         case '@follow/FOLLOW_SUCCESS':
             let followId = action.payload.followId;
             return produce(state, draft => {
-                // draft.profile.following[followId] = {followId};
                 draft.profile.following.push(followId)
-                // console.log(action.payload.followId)
             });
 
         default:

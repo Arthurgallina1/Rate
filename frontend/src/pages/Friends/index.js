@@ -7,23 +7,34 @@ import { Container } from './styles';
 export default function Friends() {
     const [ following, setFollowing ] = useState([]);
     const profile = useSelector(state => state.user.profile.following)
+    const [ followingList, setFollowingList ] = useState([]);
 
    useEffect(() => {
-        function getFollowing(){
-            setFollowing(profile)
+        async function getFollowing(){
+            await setFollowing(profile);
+
+            const followList = await Promise.all(
+                profile.map(async following => {
+                    const res = await api.get(`user/info/${following}`)
+                    res.data.user.friendship = true; 
+                    return res.data
+                })
+            )
+            setFollowingList(followList);
         }
         getFollowing();
-        // console.log(profile)
+        
    }, [])
     
     return (
         <Container>
-              {/* { 
-                following.map(follow => (
-                    <h1>{console.log(follow)} {follow.username}</h1>
-                    
-                ))
-               } */}
+              { 
+                
+                followingList.map(user => {
+                    return <FriendBox key={user.user._id}
+                    friend={user.user} friendship={user.user.friendship} />
+                })
+                }
         </Container>
     )
 }
