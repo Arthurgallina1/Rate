@@ -8,7 +8,7 @@ const dashboardController = require('../controllers/dashboardController');
 const postController = require('../controllers/postController');
 const authMiddleware = require('../middlewares/auth')
 const routes = express.Router();
-const upload = multer({dest: '../../tmp/uploads'})
+const upload = multer(multerConfig)
 
 routes.post('/user/register', authController.store);
 routes.post('/user/auth', authController.auth);
