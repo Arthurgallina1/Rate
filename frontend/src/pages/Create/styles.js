@@ -32,7 +32,7 @@ export const Container = styled.div`
             border: 0;
             border-radius: 5px;
             margin: 10px;
-            height: 250px;
+            height: 180px;
         }
 
         select {

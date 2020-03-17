@@ -1,4 +1,5 @@
-// const User = require('../model/UserSchema');
+const File = require('../model/File');
+
 module.exports = {
 
     /**
@@ -8,14 +9,19 @@ module.exports = {
     */
     async store(req, res){
         
-        const { originalname: name, filename: path } = req.file;
-        
-        // const file = await File.create({
-        //     name,
-        //     path,
+        const { originalname: fieldname, filename: path } = req.file;
+        const { userId } = req.body;
+        const { duration } = req.body;
+        // const { , duration } = req.body;
 
-        // })
-        return res.json(req.file)
+        const file = await File.create({
+            userId,
+            file: fieldname,
+            path,
+            duration
+
+        })
+        return res.json(file)
         
     }
 }

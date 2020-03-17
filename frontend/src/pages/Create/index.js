@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Container } from './styles'
 import { Form, Input, Select } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import api from '../../utils/api'
+import AvatarInput from './AvatarInput';
 
 const schema = Yup.object().shape({
     title: Yup.string().required('Title is required!'),
@@ -12,6 +14,7 @@ const schema = Yup.object().shape({
 
 
 export default function CreatePost() {
+    const [dur, setDur ] = useState('')
     const options = [
             { id: '15', title: '15 Minutes' },
             { id: '60', title: '1 Hour' },
@@ -27,9 +30,9 @@ export default function CreatePost() {
         <Container>
             <Form onSubmit={handleSubmit} schema={schema}>
                 <Input name="title" type="text" placeholder="Post title" />
-                <Select name="duration" options={options} placeholder="Duration" />
+                <Select name="duration" options={options} placeholder="Duration" onChange={(e) => setDur(e.target.value)}  value={dur}/>
                 <Input name="description" multiline type="text" placeholder="Description..."/>
-
+                <AvatarInput name="avatar_id" duration={dur}/>
                 <button type="submit">Create post</button>
             </Form>
 
