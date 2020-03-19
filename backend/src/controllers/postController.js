@@ -9,16 +9,16 @@ module.exports = {
     */
     async store(req, res){
         
-        const { originalname: fieldname, filename: path } = req.file;
-        const { userId } = req.body;
-        const { duration } = req.body;
-        // const { , duration } = req.body;
-
+        // console.log(req)
+        const {  userId, duration, title, description, path } = req.body;
+        console.log(req.body)     
         const file = await File.create({
             userId,
-            file: fieldname,
-            path,
-            duration
+            file: path,
+            path: path,
+            duration,
+            title,
+            description
 
         })
         return res.json(file)

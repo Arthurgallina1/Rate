@@ -21,7 +21,17 @@ export const Container = styled.div`
             width: 450px;
             border: 0;
             border-radius: 5px;
-            margin: 10px;
+            margin: 0 0 20px 0;
+            transition: all 1s linear;
+
+            /* &:focus {
+                border: 2px solid #ff22cc;
+            }
+             */
+        }
+
+        label {
+            font-weight: bold;
         }
 
         textarea {
@@ -31,7 +41,7 @@ export const Container = styled.div`
             width: 450px;
             border: 0;
             border-radius: 5px;
-            margin: 10px;
+            margin: 0 0 20px 0;
             height: 180px;
         }
 
@@ -41,8 +51,8 @@ export const Container = styled.div`
             padding: 10px;
             width: 450px;
             border: 0;
-            margin: 10px;
             border-radius: 5px;
+            margin: 0 0 20px 0;
         }
 
         button {
@@ -51,7 +61,7 @@ export const Container = styled.div`
             padding: 10px;
             width: 450px;
             border: 0;
-            margin: 10px;
+            /* margin: 10px; */
             border-radius: 5px;
             transition: all 0.3s ease;
             font-weight: bold;
@@ -61,6 +71,30 @@ export const Container = styled.div`
                 background: ${lighten(0.1, '#000000')}
             }
         }
+
+        label {
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            img {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255, 0.3);
+            background: #eee;
+
+            cursor: pointer;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+
+            input {
+                display: none;
+            }
+        }
+
 
     }
 

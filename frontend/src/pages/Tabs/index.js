@@ -2,6 +2,7 @@ import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Friends from '../Friends'
 import Users from '../User'
+import MyPosts from '../MyPosts'
 import { Container } from './styles'
 
 export default function TabSection() {
@@ -12,11 +13,10 @@ export default function TabSection() {
                 <Tab>Overview</Tab>
                 <Tab>Friends</Tab>
                 <Tab>Users</Tab>
-
             </TabList>
 
             <TabPanel>
-                <h2>Overview</h2>
+                <MyPosts />
             </TabPanel>
             <TabPanel>
                 <Friends/>
