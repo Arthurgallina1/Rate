@@ -23,6 +23,16 @@ module.exports = {
         })
         return res.json(file)
         
+    },
+
+
+    async show(req, res){
+
+        const { userId } = req.body;
+
+        const posts = await File.find();
+        return res.json(posts);
+
     }
 }
 
