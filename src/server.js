@@ -3,6 +3,8 @@ const cors = require('cors');
 const routes = require('./routes/routes')
 const morgan = require('morgan')
 const app = express();
+const path = require('path');
+ 
 const { uDB, pDB } = require('./config/config')
 const mongoose = require('mongoose')
 
@@ -16,8 +18,9 @@ mongoose.connect(`mongodb://localhost:27017/?readPreference=primary&appname=Mong
 
 
 app.use(express.json());
-app.use(morgan('common'))
+app.use(morgan('common'));
+app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')))
 app.use(cors());
 app.use(routes);
-app.listen(8000);
+app.listen(8000, '0.0.0.0');
 

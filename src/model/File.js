@@ -18,6 +18,12 @@ const FileSchema = new Schema({
     },
     votes: {
         type: Array
+    },
+    title: {
+        type: Array
+    },
+    description: { 
+        type: Array 
     }
     
 

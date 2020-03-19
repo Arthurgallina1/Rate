@@ -12,8 +12,8 @@ const upload = multer(multerConfig)
 
 routes.post('/user/register', authController.store);
 routes.post('/user/auth', authController.auth);
-routes.use(authMiddleware);
 routes.get('/user/show', authController.index);
+routes.use(authMiddleware);
 routes.get('/user/info/:id', authController.show);
 routes.post('/add', friendshipController.store);
 routes.post('/user/remove', friendshipController.remove);
