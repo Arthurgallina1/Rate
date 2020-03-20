@@ -22,7 +22,7 @@ export default function MyPosts() {
         <div>
             {
                 posts.map(post => (
-                    <Post key={post._id} duration={post.duration} title={post.title} description={post.description}/>
+                    <Post key={post._id} postId={post._id} duration={post.duration} title={post.title} description={post.description}/>
                 ))
             }
 

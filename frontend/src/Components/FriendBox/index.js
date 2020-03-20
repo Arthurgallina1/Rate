@@ -6,18 +6,26 @@ import { followRequest, unfollowRequest } from '../../store/modules/friends/acti
 export default function FriendBox({ friend, friendship }) {
     
     const [label, setLabel] = useState(false)
+    const [rate, setRate] = useState(false)
     const userId = useSelector(state => state.user.profile._id);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        friendship === 'rate' ? setRate(null) : setRate(true)
+    }, [])
 
     async function handleAdd(){
         if(friendship){
             dispatch(unfollowRequest(friend._id, userId ));
             setLabel('FOLLOW');
         }
-        else {
+        else if (friend === false){
             dispatch(followRequest(friend._id, userId ));
             setLabel('UNFOLLOW'); 
-         }   
+        }
+        else {
+            setRate(true)
+        }   
 
         
     }
@@ -32,7 +40,9 @@ export default function FriendBox({ friend, friendship }) {
                 <h5>{friend.username}</h5>
                 <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, odio.</span>
             </div>
-            <button onClick={() => handleAdd()}>{label  || buttonLabel }</button>
+            {
+                rate ? (<button onClick={() => handleAdd()}>{label  || buttonLabel }</button>) : (<span> 4.3 / 10</span>)
+            }
         </Box>
     )
 }

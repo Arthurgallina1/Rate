@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Box = styled.div`
 
     display: flex;
     padding: 10px;
@@ -41,7 +41,7 @@ export const Container = styled.div`
 
     }
 
-    button {key
+    button {
         margin: 20px 15px;
         width: 140px;
         height: 30px;
