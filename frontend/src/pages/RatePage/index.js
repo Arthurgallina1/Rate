@@ -2,36 +2,43 @@ import React, { useState, useEffect } from 'react'
 import { Container, Box, Comments } from './styles';
 import Comment from '../../Components/Comment'
 import FriendBox from '../../Components/FriendBox'
+import api from '../../utils/api';
+import RatingBar from '../../Components/RatingBar';
+
 
 export default function RatePage({match}) {
     console.log(match)
+    const [post, setPost] = useState({});
+    const [rate, setRate] = useState(0);
     // const { postid } = params;
     const friendSimulator = {
-        name: 'Name',
-        username: 'Username',
-        description: 'Description bla bla bla bla'
+        name: 'teste',
+        username: 'username'
     }
 
     useEffect(() => {
-        // async function(){
+        (async () => {
+            const response =  await api.get('/post/show/5e72c8b049194c5121a5985f');
+            setPost(response.data);
+            response.data.votes.length > 1 ? setRate(response.data.votes.reduce((acc, v) => acc+v)) : setRate(0);
+        })();
 
-        // }
-        // return () => {
-        //     cleanup
-        // }
+
+        
     }, [])
 
     return (
         <Container>
             <Box>
                 <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
-                <h2>Titulo do post</h2>
-                <h5>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore obcaecati magnam, accusamus beatae voluptas praesentium voluptatum eaque illum sequi architecto.</h5>
-                <div> RATE: 4.3 / 10 </div>
+                <h2>{post.userId}</h2>
+                <h5>{post.file}</h5>
+                <div>{rate}</div>
+                <RatingBar />
                 <Comments>
-                    <FriendBox  friend={friendSimulator} friendship={'rate'}/>
-                    <FriendBox friend={friendSimulator} friendship={'rate'}/>
-                    <FriendBox friend={friendSimulator} friendship={true} />
+                    <FriendBox  friend={friendSimulator} rate={rate} friendship={'rate'}/>
+                    <FriendBox friend={friendSimulator} rate={rate} friendship={'rate'}/>
+                    <FriendBox friend={friendSimulator} rate={rate} friendship={'rate'} />
                 </Comments>
 
             </Box>

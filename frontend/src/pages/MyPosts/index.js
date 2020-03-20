@@ -9,7 +9,7 @@ export default function MyPosts() {
 
     useEffect(() => {
         async function getPosts(){
-            const response = await api.get('/post/show', {
+            const response = await api.get('/post/index', {
                 "userId" : "5e6ed41303443d36a55198ee"
             });
             setPosts(response.data);

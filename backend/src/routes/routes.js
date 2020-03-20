@@ -20,7 +20,8 @@ routes.post('/user/remove', friendshipController.remove);
 routes.get('/main/friends', friendController.index)
 routes.post('/profile/:id/', friendController.store);
 routes.post('/post/create', upload.single('file'), postController.store);
-routes.get('/post/show', upload.single('file'), postController.show);
+routes.get('/post/index',  postController.index);
+routes.get('/post/show/:postid',  postController.show);
 
 routes.get('/dashboard/:id/', dashboardController.index)
 

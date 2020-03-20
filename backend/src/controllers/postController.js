@@ -26,13 +26,22 @@ module.exports = {
     },
 
 
-    async show(req, res){
+    async index(req, res){
 
         const { userId } = req.body;
 
         const posts = await File.find();
         return res.json(posts);
 
+    },
+
+
+    async show(req, res){
+        const { postid } = req.params;
+
+        const posts = await File.findById(postid);
+
+        return res.json(posts);
     }
 }
 
