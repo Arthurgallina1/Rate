@@ -10,9 +10,9 @@ export default function RatingBar() {
 
     return (
         <Rating>
-            <h3>rating bar</h3>
             <Form onSubmit={handleSubmit}>
-                <Input type="textarea" name="comment" />
+                <h3>rating bar</h3>
+                <Input type="text" name="comment" />
                 <button>VOTE</button> 
             </Form>
         </Rating>
