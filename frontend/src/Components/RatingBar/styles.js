@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 
-export const Rating = styled.div` 
-
+export const RatingDiv = styled.div` 
+    
     input {
         width: 100%;
     }
@@ -18,5 +18,17 @@ export const Rating = styled.div`
         &:hover {
             background: #333;
         }
+
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    span {
+        margin: 5px 0;
+    }
+
 `

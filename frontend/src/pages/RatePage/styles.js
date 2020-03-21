@@ -20,6 +20,12 @@ export const Box = styled.div `
     box-shadow: 1px 1px 4px 16px rgba(0.8, 0, 0 ,0);
     border-radius: 5px;
 
+    h5 { 
+        color: #666;
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+    }
+
 `
 
 export const Comments = styled.div`

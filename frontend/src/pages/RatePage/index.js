@@ -4,13 +4,13 @@ import Comment from '../../Components/Comment'
 import FriendBox from '../../Components/FriendBox'
 import api from '../../utils/api';
 import RatingBar from '../../Components/RatingBar';
+import Rating from 'react-rating';
 
 
 export default function RatePage({match}) {
     
     const [post, setPost] = useState({});
     const [rate, setRate] = useState(0);
-    // const { postid } = params;
     const friendSimulator = {
         name: 'teste',
         username: 'username'
@@ -32,9 +32,9 @@ export default function RatePage({match}) {
         <Container>
             <Box>
                 <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
-                <h2>{post.userId}</h2>
-                <h5>{post.file}</h5>
-                <div>{rate}</div>
+                <h2>{post.title}</h2>
+                <h5>{post.description}</h5>
+                <div><Rating initialRating={rate} readonly={true} quiet={true} /></div>
                 <RatingBar />
                 <Comments>
                     <FriendBox  friend={friendSimulator} rate={rate} friendship={'rate'}/>
