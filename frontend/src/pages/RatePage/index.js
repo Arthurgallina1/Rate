@@ -7,7 +7,7 @@ import RatingBar from '../../Components/RatingBar';
 
 
 export default function RatePage({match}) {
-    console.log(match)
+    
     const [post, setPost] = useState({});
     const [rate, setRate] = useState(0);
     // const { postid } = params;
@@ -17,11 +17,12 @@ export default function RatePage({match}) {
     }
 
     useEffect(() => {
-        (async () => {
-            const response =  await api.get('/post/show/5e72c8b049194c5121a5985f');
+        async function getVotes(){
+            const response =  await api.get(`/post/show/${match.params.id}`);
             setPost(response.data);
             response.data.votes.length > 1 ? setRate(response.data.votes.reduce((acc, v) => acc+v)) : setRate(0);
-        })();
+        };
+        getVotes();
 
 
         

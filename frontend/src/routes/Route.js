@@ -27,7 +27,7 @@ export default function RouteWrapper({component: Component, isPrivate, ...rest})
         // Render: função que recebe todas propriedades da tela.
         <Route {...rest} render={props => (
             <Layout>
-                <Component />
+                <Component {...props}/>
             </Layout>
         )} />
     )
