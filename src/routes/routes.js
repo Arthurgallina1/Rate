@@ -6,6 +6,7 @@ const friendController = require('../controllers/friendController')
 const friendshipController = require('../controllers/friendshipController')
 const dashboardController = require('../controllers/dashboardController');
 const postController = require('../controllers/postController');
+const rateController = require('../controllers/rateController');
 const authMiddleware = require('../middlewares/auth')
 const routes = express.Router();
 const upload = multer(multerConfig)
@@ -22,6 +23,7 @@ routes.post('/profile/:id/', friendController.store);
 routes.post('/post/create', upload.single('file'), postController.store);
 routes.get('/post/index',  postController.index);
 routes.get('/post/show/:postid',  postController.show);
+routes.post('/rate/vote',  rateController.store);
 
 routes.get('/dashboard/:id/', dashboardController.index)
 
