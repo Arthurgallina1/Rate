@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import FriendBox from '../../Components/FriendBox';
+import FollowBox from '../../Components/FollowBox';
 import { useSelector } from 'react-redux';
 import api from '../../utils/api';
 import { Container } from './styles';
@@ -31,7 +31,7 @@ export default function Friends() {
               { 
                 
                 followingList.map(user => {
-                    return <FriendBox key={user.user._id}
+                    return <FollowBox key={user.user._id}
                     friend={user.user} friendship={user.user.friendship} />
                 })
                 }

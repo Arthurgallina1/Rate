@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Box = styled.div`
 
     display: flex;
     padding: 10px;
     border-bottom: 1px solid #ccc;
-    
+
     img {
         height: 60px;
         width: 50px;
@@ -51,5 +51,12 @@ export const Container = styled.div`
         font-size: 9px;
         background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%); 
     }
+
+`
+
+
+export const RateBox = styled.div`
+
+
 
 `

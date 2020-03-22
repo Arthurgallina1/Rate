@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../utils/api'
-import FriendBox from '../../Components/FriendBox';
+import FollowBox from '../../Components/FollowBox';
 import { useSelector } from 'react-redux'
 
 export default function Users() {
@@ -33,7 +33,7 @@ export default function Users() {
         <h1>Loading </h1> : 
 
         users.map(user => (
-            <FriendBox key={user._id}
+            <FollowBox key={user._id}
                 friend={user}
                 friendship={user.friendship}
             />

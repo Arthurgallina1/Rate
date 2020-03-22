@@ -10,7 +10,7 @@ export const Container = styled.div `
 
 export const Box = styled.div `
     
-    max-width: 960px;
+    max-width: 760px;
     margin: 0 auto;
     padding: 20px;
     position: relative;
@@ -20,6 +20,12 @@ export const Box = styled.div `
     border-radius: 5px;
     h2 {
         color: #344d79;
+    }
+    h3 {
+        border-top: 1px solid #fd0565;
+        text-align: center;
+        padding-top: 10px;
+        color: #fd0565;
     }
     h5 { 
         color: #63478b;
@@ -34,10 +40,33 @@ export const Box = styled.div `
     }
 
 `
+
+export const UpperContainer = styled.div` 
+    
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        border: 0;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-weight: bold;
+        background: #db1616;
+        color: #000;
+        box-shadow: 0px 2px 2px 1px rgba(0,0,0,0.75);
+        transition: all 0.3s linear;
+        &:hover {
+            color: white;
+        }
+    }
+
+
+`
+
 export const RatingDiv = styled.div` 
 
     padding-top: 15px;
-    border-top: 1px solid #c56cf0;
+    border-top: 1px solid #fd0565;
 
     input {
         width: 100%;
@@ -82,7 +111,7 @@ export const RatingDiv = styled.div`
 `
 
 export const Comments = styled.div`
-    border-top: 1px solid #c56cf0;
+    border-top: 1px solid #fd0565;
     margin: 15px 0;
     max-width: 960px;
 

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+
+export const MainFeedBox = styled.div`
+    width: 100%;
+    min-width: 860px;
+    color: white;
 
     display: flex;
     padding: 10px;
@@ -52,4 +56,6 @@ export const Container = styled.div`
         background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%); 
     }
 
+
 `
+

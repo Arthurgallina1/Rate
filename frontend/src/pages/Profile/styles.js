@@ -14,8 +14,8 @@ export const Container = styled.div`
         align-items: center;
         background: white;
         border-radius: 6px;
-        padding: 0 0 25px 0;
-        
+        padding: 15px 15px 25px 15px;
+        box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
 
     }
 
@@ -107,9 +107,10 @@ export const Box = styled.div`
 `
 
 export const RightContainer = styled.div`
-    background: #aaa;
-    border-radius: 5px;
+    background: #fff;
+    border-radius: 6px;
     margin-left: 25px;
+    box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
 
 `
 
