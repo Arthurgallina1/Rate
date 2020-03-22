@@ -24,6 +24,7 @@ routes.post('/post/create', upload.single('file'), postController.store);
 routes.get('/post/index',  postController.index);
 routes.get('/post/show/:postid',  postController.show);
 routes.post('/rate/vote',  rateController.store);
+routes.post('/rate/index',  rateController.index);
 
 routes.get('/dashboard/:id/', dashboardController.index)
 

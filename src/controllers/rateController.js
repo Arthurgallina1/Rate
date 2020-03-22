@@ -22,5 +22,26 @@ module.exports = {
 
         return res.json(post)
 
-    }
+    },
+
+
+     /**
+    @route GET post/index
+    @desc Show all valid posts for user
+    @access Auth
+    */
+   async index(req, res) {
+    const { followerList } = req.body;
+    console.log(req.body);
+
+    const posts = await File.find({
+        userId : {
+            $in: followerList
+        },
+    })
+
+    return res.json(posts)
+
+}
+
 }
