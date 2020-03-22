@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Box, Comments } from './styles';
+import { useSelector } from 'react-redux';
 import Comment from '../../Components/Comment'
 import FriendBox from '../../Components/FriendBox'
 import api from '../../utils/api';
@@ -11,7 +12,7 @@ import SVGIconFull from '../../assets/estrelao.png';
 
 export default function RatePage({match}) {
     
-
+    const username = useSelector(state => state.user.profile.username)
     const [post, setPost] = useState({});
     const [rate, setRate] = useState(0);
     const [vote, setVote] = useState([]);
@@ -46,7 +47,7 @@ export default function RatePage({match}) {
                 <Comments>
                     {
                         vote.map(vote => (
-                            <FriendBox key={vote.comment} friend={{name: vote.userId, username: 'fck', comment: vote.comment}} rate={vote.rate} friendship={'rate'}/>
+                            <FriendBox key={vote.comment} friend={{name: 'name', username: 'username', comment: vote.comment}} rate={vote.rate} friendship={'rate'}/>
                         ))
                         // post.votes.map(pos => (
                         //    

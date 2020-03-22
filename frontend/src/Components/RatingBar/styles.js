@@ -11,7 +11,7 @@ export const RatingDiv = styled.div`
     }
     button {
         border: 0;
-        background: #fff;
+        background: #fd0565;
         color: #fff200;
         padding: 8px;
         margin: 8px 0 4px 0;
@@ -20,8 +20,8 @@ export const RatingDiv = styled.div`
         width: 100%;
         transition: 1s ease-in-out;
         &:hover {
-            background-color: #fd0565;
-            color:#fff200;
+            background-color: #fff200;
+            color:#fd0565;
         }
 
     }

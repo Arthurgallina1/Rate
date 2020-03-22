@@ -16,7 +16,7 @@ export const Box = styled.div `
     position: relative;
     top: 50px;
     background: #fff;
-    box-shadow: 1px 1px 4px 16px rgba(0.8, 0, 0 ,0);
+    box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
     border-radius: 5px;
     h2 {
         color: #344d79;
