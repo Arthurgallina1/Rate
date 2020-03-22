@@ -1,27 +1,50 @@
 import React, { useState, useEffect } from 'react'
-import { Container, Box, Comments } from './styles';
+import { Container, Box, Comments, RatingDiv } from './styles';
 import { useSelector } from 'react-redux';
+import { Form, Input } from '@rocketseat/unform';
+import api from '../../utils/api';
+import { toast } from 'react-toastify'
 import Comment from '../../Components/Comment'
 import FriendBox from '../../Components/FriendBox'
-import api from '../../utils/api';
-import RatingForm from '../../Components/RatingBar';
+// import RatingForm from '../../Components/RatingBar';
 import Rating from 'react-rating';
 import SVGIcon from '../../assets/estrela.png';
 import SVGIconFull from '../../assets/estrelao.png';
 
 
 export default function RatePage({match}) {
-    
+    const [rateVote, setRateVote ] = useState(0);
+    const userId = useSelector(state => state.user.profile._id);
+
     const username = useSelector(state => state.user.profile.username)
     const [post, setPost] = useState({});
     const [rate, setRate] = useState(0);
     const [vote, setVote] = useState([]);
+    const [render, setRender] = useState();
+
+    async function handleSubmit(data){
+        try {
+            const response = await api.post('rate/vote', {
+                userId,
+                comment: data.comment,
+                postId: match.params.id,
+                rate: rateVote
+            })
+            const newRate = response.data;
+            setRender(newRate);
+
+            toast.success('Success!')
+        } catch(err) {
+            toast.error('Error!')
+        }
+
+    }   
 
     useEffect(() => {
         async function getVotes(){
             const response =  await api.get(`/post/show/${match.params.id}`);
             await setPost(response.data);
-            response.data.votes.length > 1 ? await setVote(response.data.votes) : console.log(response.data.votes.length)
+            response.data.votes.length > 0 ? await setVote(response.data.votes) : console.log(response.data.votes.length)
             // setRate(response.data.votes.reduce((acc, v) => acc+v));
             const avgRate = Number(response.data.votes.reduce((acc, vote) => acc+vote.rate, 0) / response.data.votes.length)
             setRate(avgRate)
@@ -31,7 +54,7 @@ export default function RatePage({match}) {
         getVotes();
         
         
-    }, [])
+    }, [render])
 
     return (
         <Container>
@@ -43,7 +66,15 @@ export default function RatePage({match}) {
                 emptySymbol={<img src={SVGIcon} className="icon" />}
                 fullSymbol={<img src={SVGIconFull} className="icon-full" />}/></div>
                 <br/>
-                <RatingForm postId={match.params.id}/>
+                <RatingDiv>
+                    <Form onSubmit={handleSubmit}>
+                        <Rating stop={10} fractions={2} initialRating={rateVote} onClick={(value) => setRateVote(value)}
+                            emptySymbol={<img src={SVGIcon} className="icon" />}
+                            fullSymbol={<img src={SVGIconFull} className="icon-full" />}/>
+                        <Input type="text" name="comment" />
+                        <button>VOTE</button> 
+                    </Form>
+                </RatingDiv>
                 <Comments>
                     {
                         vote.map(vote => (

@@ -107,7 +107,8 @@ export const Box = styled.div`
 `
 
 export const RightContainer = styled.div`
-
+    background: #aaa;
+    border-radius: 5px;
     margin-left: 25px;
 
 `

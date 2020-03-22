@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Box } from './styles'
+import { Box, RateBox } from './styles'
 import { useSelector, useDispatch } from 'react-redux';
 import { followRequest, unfollowRequest } from '../../store/modules/friends/actions';
+
 
 export default function FriendBox({ friend, friendship, rate: nota  }) {
     
@@ -41,7 +42,7 @@ export default function FriendBox({ friend, friendship, rate: nota  }) {
                 <span>{friend.comment}</span>
             </div>
             {
-                rate ? (<button onClick={() => handleAdd()}>{label  || buttonLabel }</button>) : (<span> {nota} / 10</span>)
+                rate ? (<button onClick={() => handleAdd()}>{label  || buttonLabel }</button>) : (<RateBox> {nota} / 10</RateBox>)
             }
         </Box>
     )

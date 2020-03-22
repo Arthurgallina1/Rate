@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Content, Profile } from './styles';
 import { useSelector } from 'react-redux'
-import Notification from '../Notifications'
+import Notification from '../Notifications';
+import Logo from '../../assets/letra-r.svg';
 
 export default function Header() {
     const user = useSelector(state => state.user.profile);
@@ -11,7 +12,7 @@ export default function Header() {
         <Container>
             <Content>
                 <nav>
-                    <img src="" alt="Rate" />
+                    <img src={Logo} className="logo" alt="Rate" />
                     <Link to="/dashboard">DASHBOARD</Link>
                 </nav>
                 <aside>
