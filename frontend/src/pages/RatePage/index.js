@@ -3,19 +3,18 @@ import { Container, Box, Comments } from './styles';
 import Comment from '../../Components/Comment'
 import FriendBox from '../../Components/FriendBox'
 import api from '../../utils/api';
-import RatingBar from '../../Components/RatingBar';
+import RatingForm from '../../Components/RatingBar';
 import Rating from 'react-rating';
+import SVGIcon from '../../assets/estrela.png';
+import SVGIconFull from '../../assets/estrelao.png';
 
 
 export default function RatePage({match}) {
     
+
     const [post, setPost] = useState({});
     const [rate, setRate] = useState(0);
     const [vote, setVote] = useState([]);
-    const friendSimulator = {
-        name: 'teste',
-        username: 'username'
-    }
 
     useEffect(() => {
         async function getVotes(){
@@ -39,8 +38,11 @@ export default function RatePage({match}) {
                 <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
                 <h2>{post.title}</h2>
                 <h5>{post.description}</h5>
-                <div><Rating stop={10} initialRating={rate} readonly={true} quiet={true} /></div>
-                <RatingBar />
+                <div><Rating stop={10} initialRating={rate} readonly={true} quiet={true} 
+                emptySymbol={<img src={SVGIcon} className="icon" />}
+                fullSymbol={<img src={SVGIconFull} className="icon-full" />}/></div>
+                <br/>
+                <RatingForm postId={match.params.id}/>
                 <Comments>
                     {
                         vote.map(vote => (
