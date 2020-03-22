@@ -38,7 +38,7 @@ export default function FriendBox({ friend, friendship, rate: nota  }) {
             <div>
                 <p>{friend.name}</p>
                 <h5>{friend.username}</h5>
-                <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, odio.</span>
+                <span>{friend.comment}</span>
             </div>
             {
                 rate ? (<button onClick={() => handleAdd()}>{label  || buttonLabel }</button>) : (<span> {nota} / 10</span>)
