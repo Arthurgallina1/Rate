@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const MainFeedBox = styled.div`
     width: 100%;
     min-width: 860px;
-    color: white;
+    color: black;
 
     display: flex;
     padding: 10px;

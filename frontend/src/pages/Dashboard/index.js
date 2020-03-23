@@ -28,12 +28,12 @@ export default function Dashboard() {
           <PageContainer>
                 {/* <Link to="/createpost"><button type="button">CREATE POST</button></Link> */}
                 <Feed>
-                  <div className="post-bg">
-                    { 
-                      posts.map(post => (
-                        isBefore(new Date(), new Date(post.duration)) ? ( <FeedBox key={post._id} post={post} />) : ''
-                      ))
-                    }
+                  <div>
+                  { 
+                    posts.map(post => (
+                      isBefore(new Date(), new Date(post.duration)) ? ( <FeedBox key={post._id} post={post} />) : ''
+                    ))
+                  }
                   </div>
                 </Feed>
           </PageContainer>
