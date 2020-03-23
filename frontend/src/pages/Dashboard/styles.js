@@ -40,18 +40,5 @@ export const PageContainer = styled.div`
 
 export const Feed = styled.div`
 
-    :nth-child(3n+0){
-        background: blue;
-    }
-
-    div:nth-child(3n+1){
-        background: yellow;
-    }
-
-    div:nth-child(3n+2){
-        background: red;
-    }
-
-
-
+   
 `

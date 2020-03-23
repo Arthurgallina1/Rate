@@ -5,10 +5,11 @@ export const MainFeedBox = styled.div`
     width: 100%;
     min-width: 860px;
     color: black;
-
     display: flex;
     padding: 10px;
     border-bottom: 1px solid #ccc;
+    background: ${props => (console.log(props.theme))   ? 'yellow' : 'yellow'} ;
+
     
     img {
         height: 60px;
@@ -59,3 +60,6 @@ export const MainFeedBox = styled.div`
 
 `
 
+export const Cont = styled.div` 
+
+`

@@ -10,6 +10,7 @@ import { isBefore } from 'date-fns';
 export default function Dashboard() {
   const followerList = useSelector(state => state.user.profile.following);
   const [ posts, setPosts ] = useState([]);
+
   useEffect(() => {
       try {
             async function getFeedPosts(){
@@ -30,8 +31,11 @@ export default function Dashboard() {
                 <Feed>
                   <div>
                   { 
-                    posts.map(post => (
-                      isBefore(new Date(), new Date(post.duration)) ? ( <FeedBox key={post._id} post={post} />) : ''
+                    posts.map((post, i) => (
+                      isBefore(new Date(), new Date(post.duration)) ? (
+                            <FeedBox key={post._id} post={post} theme={i} 
+                         />) : ''
+
                     ))
                   }
                   </div>
