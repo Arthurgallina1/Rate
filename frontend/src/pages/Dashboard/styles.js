@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
     position: relative;
     top: 50px;
     background: white;
-    background: #fff;
+    background: #000;
     box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.75);
     border-radius: 5px;
     max-width: 860px;
@@ -24,8 +24,9 @@ export const PageContainer = styled.div`
   
     
     button {
-        background: #24292e;
+        background: #000;
         color: white;
+        height: 45px;
         border: 0;
         padding: 10px;
         font-weight: bold;
@@ -33,7 +34,6 @@ export const PageContainer = styled.div`
         border-radius: 5px;
         transition: all 0.3s ease-in-out;
         &:hover {
-            background: ${lighten(0.3, '#24292e')}
         }
     }
 `

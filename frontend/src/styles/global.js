@@ -5,12 +5,14 @@ import 'react-tabs/style/react-tabs.css';
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
 
     * {
         margin: 0;
         padding: 0;
         outline: 0;
         box-sizing: border-box;
+        font-family: 'Baloo Thambi 2', cursive;
 
     }
 

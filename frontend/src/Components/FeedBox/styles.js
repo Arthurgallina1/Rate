@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { darken } from 'polished';
 
 const handleColorType = color => {
     switch (color) {
@@ -22,12 +22,9 @@ export const MainFeedBox = styled.div`
     padding: 10px;
     /* border-bottom: 1px solid #ccc; */
     background-color: ${(props) => handleColorType(props.color)};
-
-
-    ${props => {
-        console.log(props)
-    }}
-    
+    &:hover {
+        background-color: ${(props) => darken('0.05', handleColorType(props.color))};
+    }
     img {
         height: 60px;
         width: 50px;
@@ -38,7 +35,9 @@ export const MainFeedBox = styled.div`
 
     div {
         padding: 5px 10px;
+        flex: 2;
     }
+
 
     p {
         line-height: 1.5;
@@ -53,6 +52,10 @@ export const MainFeedBox = styled.div`
             color: #0366d6;
         }
     }
+    h3 {
+        color: black;
+        font-weight: bold;
+    }
     h5 {
         color: #777;
         margin-bottom: 5px;
@@ -60,7 +63,21 @@ export const MainFeedBox = styled.div`
     span {
         font-size: 12px;
         color: #777;
+    }
 
+    big { 
+        margin: 25px 0 5px 0;
+        font-weight: bold;
+        color: #db1616;
+    }
+
+    img { 
+        margin-right: 10px;
+        transition: all 1s linear;
+        &:hover {
+            rotate: 10deg;
+           
+        }
     }
 
     button {
