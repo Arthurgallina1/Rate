@@ -1,15 +1,32 @@
 import styled from 'styled-components';
 
 
+const handleColorType = color => {
+    switch (color) {
+      case 1:
+        return "#FFFC00";
+      case 2:
+        return "#00ff37";
+      case 0:
+        return "#009dff";
+      default:
+        return "#fff";
+    }
+  };
+
 export const MainFeedBox = styled.div`
     width: 100%;
     min-width: 860px;
     color: black;
     display: flex;
     padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background: ${props => (console.log(props.theme))   ? 'yellow' : 'yellow'} ;
+    /* border-bottom: 1px solid #ccc; */
+    background-color: ${(props) => handleColorType(props.color)};
 
+
+    ${props => {
+        console.log(props)
+    }}
     
     img {
         height: 60px;

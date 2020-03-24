@@ -80,7 +80,7 @@ export default function RatePage({match}) {
             <Box>
                 <UpperContainer>
                     <div className="">
-                        <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
+                        <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="profile_pic"/>
                         <h2>{post.title}</h2>
                         <h5>{post.description}</h5>
                         <div><Rating stop={10} initialRating={rate} readonly={true} quiet={true} 

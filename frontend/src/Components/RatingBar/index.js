@@ -28,7 +28,7 @@ export default function RatingForm({ postId }) {
     }   
 
     return (
-        <RatingDiv>
+        <RatingDiv chupa={'xxt'}>
             <Form onSubmit={handleSubmit}>
                 <Rating stop={10} fractions={2} initialRating={rateVote} onClick={(value) => setRateVote(value)}
                     emptySymbol={<img src={SVGIcon} className="icon" />}
