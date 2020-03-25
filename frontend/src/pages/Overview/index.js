@@ -14,11 +14,15 @@ export default function Overview() {
                 
             </Container>
             <Container>
-            <h3>Your Posts</h3>
-            < hr />
-            <h4><strong>203</strong> Total votes</h4>
-            <h4><strong>9.3 </strong>Best rating</h4>
+                <h3>Your Posts</h3>
+                < hr />
+                <h4><strong>203</strong> Total votes</h4>
+                <h4><strong>9.3 </strong>Best rating</h4>
             </Container>
+            <Container>
+                Grafico
+            </Container>
+
         </ContainerView>
     )
 }
