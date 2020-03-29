@@ -11,12 +11,6 @@ export default function Dashboard() {
   const followerList = useSelector(state => state.user.profile.following);
   const [ posts, setPosts ] = useState([]);
 
-  const themes = {
-    0 : 'yellow',
-    1 : 'blue',
-    2 : 'red'
-  }
-
   useEffect(() => {
       try {
             async function getFeedPosts(){

@@ -6,6 +6,7 @@ import api from '../../utils/api';
 import { toast } from 'react-toastify'
 import Comment from '../../Components/Comment'
 import RateBox from '../../Components/FriendBox'
+import { Link } from 'react-router-dom';
 // import RatingForm from '../../Components/RatingBar';
 import Rating from 'react-rating';
 import SVGIcon from '../../assets/estrela.png';
@@ -89,7 +90,9 @@ export default function RatePage({match}) {
                     </div>
 
                     <div className="">
-                        <button> BACK</button>
+                        <Link to="/dashboard">
+                            <button> BACK</button>
+                        </Link>
                     </div>
                 </UpperContainer>
                 <br/>

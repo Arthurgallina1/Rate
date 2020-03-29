@@ -1,14 +1,15 @@
 import React, { useState }from 'react'
 import { MainFeedBox, Cont }  from './styles';
 import { Link } from 'react-router-dom';
-import { differenceInHours, differenceInMinutes } from 'date-fns'
 import Logo from '../../assets/letra-r.svg';
+import timeleft_formatted from '../../utils/dates'
 
 export default function FeedBox( { post, color }) {
     
-    const minLeft = differenceInMinutes(new Date(post.duration), new Date());
-    const hourLeft = differenceInHours(new Date(post.duration), new Date());
-    const minLefFormatted = minLeft % 60;
+  
+   
+    const timeLeft =  timeleft_formatted(post.duration);
+    // const dayLeftFormatted = dayLeft % 24
 
     return (
         <MainFeedBox color={color}>
@@ -16,7 +17,7 @@ export default function FeedBox( { post, color }) {
                   <div>
                     <h3>{post.title}</h3>
                     <h5>{post.description}</h5>
-                   <big> {`${hourLeft}h${minLefFormatted}m left`}</big><br/>
+                   <big> {timeLeft}</big><br/>
                   </div>
                 <Link to={`/rate/${post._id}`}><img src={Logo} alt=""/></Link>
         </MainFeedBox>
