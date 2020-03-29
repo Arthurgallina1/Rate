@@ -3,11 +3,12 @@ import { MainFeedBox, Cont }  from './styles';
 import { Link } from 'react-router-dom';
 import Logo from '../../assets/letra-r.svg';
 import timeleft_formatted from '../../utils/dates'
+import { parseISO, formatDistance } from 'date-fns';
 
 export default function FeedBox( { post, color }) {
     
   
-   
+    const timeDistance = formatDistance(parseISO(post.duration), new Date())
     const timeLeft =  timeleft_formatted(post.duration);
     // const dayLeftFormatted = dayLeft % 24
 
@@ -17,7 +18,7 @@ export default function FeedBox( { post, color }) {
                   <div>
                     <h3>{post.title}</h3>
                     <h5>{post.description}</h5>
-                   <big> {timeLeft}</big><br/>
+                   <big> {timeDistance}</big><br/>
                   </div>
                 <Link to={`/rate/${post._id}`}><img src={Logo} alt=""/></Link>
         </MainFeedBox>

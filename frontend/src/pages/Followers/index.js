@@ -7,20 +7,23 @@ import { Container } from './styles';
 import { IoMdSad } from 'react-icons/io'
 export default function Friends() {
     const [ following, setFollowing ] = useState([]);
-    const profile = useSelector(state => state.user.profile.followers)
+    const followers = useSelector(state => state.user.profile.followers);
+    const followingCheck = useSelector(state => state.user.profile.following);
     const [ followingList, setFollowingList ] = useState([]);
 
    useEffect(() => {
         async function getFollowers(){
-            await setFollowing(profile);
+            await setFollowing(followers);
 
             const followList = await Promise.all(
-                profile.map(async following => {
+                followers.map(async following => {
                     const res = await api.get(`user/info/${following}`)
-                    res.data.user.friendship = true; 
+                    followingCheck.find(following => following === res.data.user._id) ? 
+                        res.data.user.friendship = true : res.data.user.friendship = false
                     return res.data
                 })
             )
+            console.log(followList)
             setFollowingList(followList);
         }
         getFollowers();

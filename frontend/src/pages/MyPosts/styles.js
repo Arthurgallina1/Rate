@@ -1,9 +1,10 @@
-import { styled } from 'styled-components';
+import styled from 'styled-components';
 
 
 export const Container = styled.div`
-    height: 300px;
-    
-
+    .no-posts-msg{
+        text-align: center;
+        padding: 10px;
+    }
 
 `

@@ -83,7 +83,7 @@ export const Notifications = styled.div `
     }
 
     ${props => 
-    props.unread &&
+    props.read &&
     css `
         &::after { 
             content: '';
