@@ -7,6 +7,7 @@ export default function Users() {
     const [ users, setUsers ] = useState([]);
     const [ loading, setLoading ] = useState(true);
     const followingList = useSelector(state => state.user.profile.following);
+    const userId = useSelector(state => state.user.profile._id);
 
     useEffect(() => {
         async function getUsers() {
@@ -17,7 +18,8 @@ export default function Users() {
                 formattedRes.map(user => {
                     user.friendship = followingList.includes(user._id) ? true : false
                 })
-                await setUsers(formattedRes)
+                const userLists = formattedRes.filter(user => user._id !== userId)
+                await setUsers(userLists)
                 setLoading(false);
                 // console.log(formattedRes)
             } catch (err) {

@@ -23,6 +23,8 @@ module.exports = {
 
             currentUser.following.push(userToBeAdd._id);
             await currentUser.save();
+            userToBeAdd.followers.push(currentUser._id);
+            await userToBeAdd.save();
 
             return res.json(currentUser)
 

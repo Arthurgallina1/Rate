@@ -1,6 +1,7 @@
 import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Following from '../Friends'
+import Followers from '../Followers'
 import Users from '../User'
 import Overview from '../Overview'
 import MyPosts from '../MyPosts'
@@ -25,7 +26,7 @@ export default function TabSection() {
                 <Following/>
             </TabPanel>
             <TabPanel>
-                <Following/>
+                <Followers/>
             </TabPanel>
             <TabPanel>
                 <Users/>
