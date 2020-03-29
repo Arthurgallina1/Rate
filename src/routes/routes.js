@@ -6,6 +6,7 @@ const friendController = require('../controllers/friendController')
 const friendshipController = require('../controllers/friendshipController')
 const dashboardController = require('../controllers/dashboardController');
 const postController = require('../controllers/postController');
+const notificationController = require('../controllers/notificationController');
 const rateController = require('../controllers/rateController');
 const authMiddleware = require('../middlewares/auth')
 const routes = express.Router();
@@ -22,9 +23,13 @@ routes.get('/main/friends', friendController.index)
 routes.post('/profile/:id/', friendController.store);
 routes.post('/post/create', upload.single('file'), postController.store);
 routes.get('/post/index',  postController.index);
+routes.post('/post/myposts',  postController.myposts);
 routes.get('/post/show/:postid',  postController.show);
 routes.post('/rate/vote',  rateController.store);
 routes.post('/rate/index',  rateController.index);
+routes.post('/notifications/index', notificationController.index);
+routes.post('/notifications/store', notificationController.store);
+routes.put('/notifications/update/:id', notificationController.update);
 
 routes.get('/dashboard/:id/', dashboardController.index)
 

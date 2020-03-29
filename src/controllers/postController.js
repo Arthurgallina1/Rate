@@ -42,6 +42,14 @@ module.exports = {
         const posts = await File.findById(postid);
 
         return res.json(posts);
+    },
+
+    async myposts(req, res) {
+        const { userId } = req.body;
+
+        const posts = await File.find({userId});
+
+        return res.json(posts);
     }
 }
 
