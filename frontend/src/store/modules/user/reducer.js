@@ -26,6 +26,12 @@ export default function auth(state = INITIAL_STATE, action) {
                 // console.log(followersList)
                 
             });
+        case '@auth/SIGN_OUT': {
+            return produce(state, draft => {
+                draft.token = null;
+                draft.signed = false;
+            })
+        }
 
 
         default:
