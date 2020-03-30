@@ -19,7 +19,7 @@ export default function Tester() {
 
     return (
         <div>
-            {state}te
+            {state}
         </div>
     )
 }

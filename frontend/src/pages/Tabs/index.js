@@ -5,6 +5,7 @@ import Followers from '../Followers'
 import Users from '../User'
 import Overview from '../Overview'
 import MyPosts from '../MyPosts'
+import Tester from '../../Components/Tester'
 import { Container } from './styles'
 
 export default function TabSection() {
@@ -17,6 +18,7 @@ export default function TabSection() {
                 <Tab>Followers</Tab>
                 <Tab>Users</Tab>
                 <Tab>Posts</Tab>
+                <Tab>Testes</Tab>
             </TabList>
 
             <TabPanel>
@@ -33,6 +35,9 @@ export default function TabSection() {
             </TabPanel>
             <TabPanel>
                 <MyPosts />
+            </TabPanel>
+            <TabPanel>
+                <Tester />
             </TabPanel>
         </Tabs>
        </Container>
