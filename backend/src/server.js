@@ -15,12 +15,17 @@ mongoose.connect(`mongodb://localhost:27017/?readPreference=primary&appname=Mong
     useUnifiedTopology: true
 });
 
+const corsConfig = {
+    origin: 'https://upbeat-varahamihira-17c567.netlify.com',
+        
+
+}
 
 
 app.use(express.json());
 app.use(morgan('common'));
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')))
-app.use(cors());
+app.use(cors(corsConfig));
 app.use(routes);
 app.listen(8000, '0.0.0.0');
 
