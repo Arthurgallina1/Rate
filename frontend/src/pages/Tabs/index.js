@@ -6,7 +6,10 @@ import Users from '../User'
 import Overview from '../Overview'
 import MyPosts from '../MyPosts'
 import Tester from '../../Components/Tester'
+import Tester2 from '../../Components/Tester2'
 import { Container } from './styles'
+import { UserContext } from '../../utils/userContext'
+
 
 export default function TabSection() {
     return (
@@ -18,7 +21,8 @@ export default function TabSection() {
                 <Tab>Followers</Tab>
                 <Tab>Users</Tab>
                 <Tab>Posts</Tab>
-                <Tab>Testes</Tab>
+                {/* <Tab>Testes</Tab>
+                <Tab>Testes2</Tab> */}
             </TabList>
 
             <TabPanel>
@@ -36,9 +40,14 @@ export default function TabSection() {
             <TabPanel>
                 <MyPosts />
             </TabPanel>
-            <TabPanel>
-                <Tester />
-            </TabPanel>
+            {/* <UserContext.Provider value='hello from context'>
+                <TabPanel>
+                    <Tester />
+                </TabPanel>
+                <TabPanel>
+                    <Tester2 />
+                </TabPanel>
+            </UserContext.Provider> */}
         </Tabs>
        </Container>
     )
