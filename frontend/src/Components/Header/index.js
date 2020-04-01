@@ -23,17 +23,21 @@ export default function Header() {
                     <img src={Logo} className="logo" alt="Rate" />
                     <Link to="/dashboard">DASHBOARD</Link>
                 </nav>
-                <aside>
-                    <Notification />
-                    <Profile>
-                        <div>
-                            <strong>{user.name}</strong>
-                            <Link to="/profile">Meu perfil</Link>
-                        </div>
-                        <img src=" https://api.adorable.io/avatars/50/abott@adorable.png" alt="Avatar"/>
-                        <FiLogOut size={20} color={'#fff'} onClick={handleLogout}/>
-                    </Profile>
-                </aside>
+               {
+                   user ? ( 
+                   <aside>
+                        <Notification />
+                        <Profile>
+                            <div>
+                                <strong>{user.name}</strong>
+                                <Link to="/profile">Meu perfil</Link>
+                            </div>
+                            <img src=" https://api.adorable.io/avatars/50/abott@adorable.png" alt="Avatar"/>
+                            <FiLogOut size={20} color={'#fff'} onClick={handleLogout}/>
+                        </Profile>
+                    </aside>
+                ) : ''
+               }
 
             </Content>
         </Container>

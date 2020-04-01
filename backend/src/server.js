@@ -9,8 +9,8 @@ const { uDB, pDB } = require('./config/config')
 const mongoose = require('mongoose')
 
 // mongodb+srv://${uDB}:${pDB}@clustermevn-cztsy.mongodb.net/dev?retryWrites=true&w=majority
-// mongoose.connect(`mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false`, 
-mongoose.connect(`mongodb+srv://${uDB}:${pDB}@clustermevn-cztsy.mongodb.net/dev?retryWrites=true&w=majority`, 
+mongoose.connect(`mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false`, 
+// mongoose.connect(`mongodb+srv://${uDB}:${pDB}@clustermevn-cztsy.mongodb.net/dev?retryWrites=true&w=majority`, 
 { 
     useNewUrlParser: true,
     useUnifiedTopology: true

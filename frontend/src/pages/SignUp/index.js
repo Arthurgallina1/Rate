@@ -4,6 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import api from '../../utils/api'
 import { toast, ToastType } from 'react-toastify'
+import Logo from '../../assets/letra-r.svg'
 const schema = Yup.object().shape({
     name: Yup.string().required('Name is required!'),
     email: Yup.string().email('E-mail is not valid!').required('E-mail is required'),
@@ -33,7 +34,7 @@ export default function SignUp() {
     
     return (
         <>
-            <img src="" alt="Rate"/>
+            <img src={Logo} alt="Rate"/>
             <span> {status} </span>
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="name" type="name" placeholder="Your name"/>

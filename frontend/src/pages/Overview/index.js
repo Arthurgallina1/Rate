@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { ContainerView, Container } from './styles';
 import { useSelector } from 'react-redux'
-import renderLineChart from '../../Components/BarChart'
 import api from '../../utils/api';
+import { UserContext } from '../../utils/userContext';
 
 export default function Overview() {
-    const user = useSelector(state => state.user.profile)
-
+    const user = useSelector(state => state.user.profile);
+    const post = useContext(UserContext);
     return (
         <ContainerView>
             <Container >
@@ -14,7 +14,7 @@ export default function Overview() {
                 < hr />
                 <h4>Joined <strong>July 2019</strong> </h4>
                 <h4><strong>{user.following.length}</strong> Following <strong>|</strong> <strong>{user.followers.length}</strong> Followers</h4>
-                <h4><strong>5</strong> Posts</h4>
+                <h4><strong>{post.length}</strong> Posts</h4>
 
                 
             </Container>

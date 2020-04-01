@@ -5,6 +5,8 @@ export const Container = styled.div `
     height: 100%;
     background: #fd0565;
 
+   
+
 `
 
 
@@ -19,8 +21,8 @@ export const PageContainer = styled.div`
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center; */
+    /* justify-content: center; */
   
     
     button {
@@ -35,6 +37,11 @@ export const PageContainer = styled.div`
         transition: all 0.3s ease-in-out;
         &:hover {
         }
+    }
+
+
+    @media (max-width: 600px){
+        max-width: 400px;
     }
 `
 

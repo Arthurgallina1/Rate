@@ -21,7 +21,7 @@ export const Container = styled.div`
 
 
     .react-tabs__tab--selected {
-        border-bottom: 2px solid #e36209;
+        border-bottom: 2.5px solid #fd0565;
         font-weight: 600;
         color: #24292e;
 
