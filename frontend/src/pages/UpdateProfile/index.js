@@ -26,7 +26,6 @@ export default function UpdateProfile() {
                 <Link to="/profile"><button>Update profile</button></Link>
             </Form>
 
-            <button>Logout</button>
         </Container>
     )
 }

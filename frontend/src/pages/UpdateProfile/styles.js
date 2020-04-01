@@ -39,9 +39,9 @@ export const Container = styled.div`
         button {
             margin: 5px 0 0;
             height: 44px;
-            background: #999;
+            background: #fd0565;
             font-weight: bold;
-            color: #000;
+            color: #fff;
             border: 0;
             border-radius: 4px;
             font-size: 16px;
@@ -49,7 +49,7 @@ export const Container = styled.div`
             display: block;
             width: 100%;
             &:hover {
-                background: ${darken(0.05, '#999')};
+                background: ${darken(0.1, '#fd0565')};
             }
         }
 
@@ -57,7 +57,7 @@ export const Container = styled.div`
             color: #FFF;
             margin-top: 15px;
             font-size: 16px;
-            opacity: 0.8;
+            opacity: 1;
 
             &:hover {
                 opacity: 1;

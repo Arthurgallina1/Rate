@@ -2,13 +2,22 @@ import styled from 'styled-components';
 import { lighten } from 'polished'
 
 export const Container = styled.div`
-    width: 960px;
+    max-width: 860px;
     margin: 15px auto;
     
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
+
+    @media (max-width: 600px){
+        max-width: 400px;
+        input {
+            margin: 10px;
+        }
+
+    }
+
 
     Form {
         display: flex;
@@ -18,7 +27,7 @@ export const Container = styled.div`
             background: rgba(0,0,0, 0.8);
             color: white;
             padding: 10px;
-            width: 450px;
+            width: 100%;
             border: 0;
             border-radius: 5px;
             margin: 0 0 20px 0;
@@ -38,7 +47,7 @@ export const Container = styled.div`
             background: rgba(0,0,0, 0.8);
             color: white;
             padding: 10px;
-            width: 450px;
+            width: 100%;
             border: 0;
             border-radius: 5px;
             margin: 0 0 20px 0;
@@ -49,7 +58,7 @@ export const Container = styled.div`
             background: rgba(0,0,0, 0.8);
             color: white;
             padding: 10px;
-            width: 450px;
+            width: 100%;
             border: 0;
             border-radius: 5px;
             margin: 0 0 20px 0;
@@ -59,7 +68,7 @@ export const Container = styled.div`
             background: rgba(0,0,0, 0.8);
             color: white;
             padding: 10px;
-            width: 450px;
+            width: 100%;
             border: 0;
             /* margin: 10px; */
             border-radius: 5px;

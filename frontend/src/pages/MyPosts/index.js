@@ -1,20 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import Post from '../../Components/Posts';
 import api from '../../utils/api'
-import { useSelector } from 'react-redux'
+import { UserContext } from '../../utils/userContext'
 import { Container } from './styles';
 
 export default function MyPosts() {
-    const [posts, setPosts] = useState([]);
-    const userId = useSelector(state => state.user.profile._id);
+    const posts = useContext(UserContext);
 
-    useEffect(() => {
-        async function getPosts(){
-            const response = await api.get('/post/myposts',{ userId });
-            setPosts(response.data);
-        }
-        getPosts();
-    }, [])
     return (
       
 

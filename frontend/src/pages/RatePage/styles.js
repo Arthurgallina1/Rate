@@ -9,7 +9,6 @@ export const Container = styled.div `
 `
 
 export const Box = styled.div `
-    
     max-width: 760px;
     margin: 0 auto;
     padding: 20px;
@@ -18,6 +17,17 @@ export const Box = styled.div `
     background: #fff;
     box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
     border-radius: 5px;
+    
+    @media (max-width: 600px){
+        max-width: 400px;
+        font-size: 10px;
+
+        p {
+            font-size: 11px;
+        }
+    }
+
+
     h2 {
         color: #344d79;
     }

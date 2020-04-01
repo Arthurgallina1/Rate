@@ -16,15 +16,20 @@ const handleColorType = color => {
 
 export const MainFeedBox = styled.div`
     width: 100%;
-    min-width: 860px;
+    /* min-width: 860px; */
     color: black;
     display: flex;
     padding: 10px;
+    flex: 1;
     /* border-bottom: 1px solid #ccc; */
     background-color: ${(props) => handleColorType(props.color)};
     &:hover {
         background-color: ${(props) => darken('0.05', handleColorType(props.color))};
     }
+    @media (max-width: 600px){
+        max-width: 400px;
+    }
+
     img {
         height: 60px;
         width: 50px;

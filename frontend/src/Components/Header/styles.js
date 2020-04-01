@@ -5,6 +5,13 @@ export const Container = styled.div`
     /* background:#2f4858; */
     background: #111;
     padding: 0 30px;
+
+
+    @media (max-width: 600px) 
+    {
+       font-size: 10px;
+    }
+
 `
 
 export const Content = styled.div`
