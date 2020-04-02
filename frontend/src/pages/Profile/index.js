@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Box, RightContainer } from './styles'
+import { Container, Box, RightContainer, ProfileContainer } from './styles'
 import { MdPinDrop } from 'react-icons/md'
 import TabSection from '../Tabs';
 import { useSelector } from 'react-redux'
@@ -9,28 +9,30 @@ import { useSelector } from 'react-redux'
 export default function Profile() {
     const profile = useSelector(state => state.user.profile)
     return (
-        <Container>
-            <aside>
-                <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
+        <ProfileContainer>
+              <Container>
+                    <aside>
+                        <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt=""/>
 
-                <h3>{profile.name}</h3>
-                <h4>{profile.username}</h4>
+                        <h3>{profile.name}</h3>
+                        <h4>{profile.username}</h4>
 
-                <Link to="/updateprofile"> <button >Edit Profile</button></Link> 
-                <Box>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aspernatur laboriosam obcaecati consectetur dolorem rerum enim facilis quo, asperiores modi.</p>
-                    <span><MdPinDrop size={20} color={'#333'} /> Brazil </span>
+                        <Link to="/updateprofile"> <button >Edit Profile</button></Link> 
+                        <Box>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aspernatur laboriosam obcaecati consectetur dolorem rerum enim facilis quo, asperiores modi.</p>
+                            <span><MdPinDrop size={20} color={'#333'} /> Brazil </span>
 
-                </Box>
-            </aside>
+                        </Box>
+                    </aside>
 
-            <RightContainer>
-                <TabSection>
+                    <RightContainer>
+                        <TabSection>
 
-                </TabSection>
-            </RightContainer>
+                        </TabSection>
+                    </RightContainer>
 
-           {/* <Link to="/updateprofile"> <button >Update Profile</button></Link> */}
-        </Container>
+                {/* <Link to="/updateprofile"> <button >Update Profile</button></Link> */}
+                </Container>
+        </ProfileContainer>
     )
 }

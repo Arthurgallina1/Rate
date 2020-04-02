@@ -62,8 +62,12 @@ export const Content = styled.div`
             &:hover {
                 background: ${darken(0.20, '#009dff')}
             }
+            > div {
+            margin: 0 auto;
+        }
             
         }
+
 
         a {
             color: #FFF;

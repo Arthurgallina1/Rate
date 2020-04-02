@@ -5,7 +5,7 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { signInRequest } from '../../store/modules/auth/actions';
 import Logo from '../../assets/letra-r.svg';
-// import ReactLoading from 'react-loading';
+import ReactLoading from 'react-loading';
 
 const schema = Yup.object().shape({
     username: Yup.string().required('Username is required'),
@@ -29,8 +29,8 @@ export default function SignIn() {
                 <Input name="password" type="password" placeholder="Password"/>
 
                 <button type="submit">{ loading ? (
-                    //  <ReactLoading type={'Bars'} color={'#FFF'} height={30} width={30} /> 
-                    ''
+                     <ReactLoading type={'bars'} color={'#FFF'} height={45} width={45} />
+                    
                 ) : 'Login'}</button>
                 <Link to="/register">Create account.</Link>
             </Form>

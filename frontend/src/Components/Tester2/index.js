@@ -1,11 +1,20 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { UserContext } from '../../utils/userContext';
+
 export default function Tester2() {
 
-    const msg = useContext(UserContext);
+    const context = useContext(UserContext);
+    console.log(context)
+
+    useEffect(() => 
+        {
+            context.updateContextValue('testes 2 manda');
+
+        },[])
+
     return (
         <div>
-            <h1>ab {msg} </h1>
+            <h1>tester2 {context.test}</h1>
         </div>
     )
 }
