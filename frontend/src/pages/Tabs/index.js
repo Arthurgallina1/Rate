@@ -15,7 +15,9 @@ import { UserContext } from '../../utils/userContext'
 
 
 export default function TabSection() {
-    const [post, setPost] = useState([]);
+    const [post, setPost] = useState([]); 
+    const [info, setInfo] = useState('');
+
     const userId = useSelector(state => state.user.profile._id);
     useEffect(() => {
         async function getPosts(){
@@ -25,6 +27,11 @@ export default function TabSection() {
         }
         getPosts();
     }, []);
+
+    function updateContextValue(value){
+        setInfo(value);
+    }
+
 
     return (
        <Container>
@@ -39,7 +46,7 @@ export default function TabSection() {
                 <Tab>Testes2</Tab> */}
             </TabList>
 
-            <UserContext.Provider value={post}>
+            <UserContext.Provider value={{post, info, updateContextValue}}>
                 <TabPanel>
                     <Overview />
                 </TabPanel>

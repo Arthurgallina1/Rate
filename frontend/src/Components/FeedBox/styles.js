@@ -30,6 +30,26 @@ export const MainFeedBox = styled.div`
         max-width: 400px;
     }
 
+    svg {
+        margin-left: 55px;
+        /* border: 1px solid #fd0565;
+     */
+        border-radius: 50%;
+        border: 1px solid transparent;
+        animation: pulse 1.5s reverse infinite;
+        
+    }
+    @keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(253, 5, 101, 0.9);
+        }
+
+        0% {
+            box-shadow: 0 0 0 20px rgba(253, 5, 101, 0.4);;
+        }
+
+    }
+
     img {
         height: 60px;
         width: 50px;

@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
+
+
+
+export const ProfileContainer = styled.div`
+       min-height: 100%;
+       background: #FFFC00;
+`
+
+
 export const Container = styled.div`
+    
     max-width: 1000px;
     margin: 50px;
     display: flex;
+ 
     
     aside {
         /* flex-grow: 1; */
@@ -61,6 +72,36 @@ export const Container = styled.div`
         }
     }
 
+    @media (max-width: 651px ) {
+        flex-direction: column;
+        margin-bottom: 0px;
+        padding-bottom: 50px;
+        
+        aside { 
+            padding: 15px 0;
+            justify-content: center;
+            text-align: center; 
+            margin-bottom: 25px;
+            p {
+                font-size: 11px;
+            } 
+            h3 {
+                align-self: center;
+            }
+            h4 {
+                align-self: center;
+            }
+            span {
+                align-self: center;
+            }
+        }
+
+        img {
+            width: 100px;
+            height: 75px;
+
+        }
+    }
     
     /*    
             button {
@@ -98,12 +139,12 @@ export const Box = styled.div`
         margin-right: 7px;
     }
 
-    span {
+    /* span {
         display: flex;
         justify-content: flex-start;
         font-size: 12px;
                 
-    }
+    } */
 `
 
 export const RightContainer = styled.div`
@@ -112,11 +153,12 @@ export const RightContainer = styled.div`
     margin-left: 25px;
     box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
 
-`
 
-
-export const Tab = styled.div`
-
+    @media (max-width: 651px ) {
+        margin-left: 0px;
+    
+    
+    }
 
 
 `
