@@ -3,7 +3,7 @@ import api from '../../utils/api'
 import FollowBox from '../../Components/FollowBox';
 import { useSelector } from 'react-redux'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
-
+import ReactLoading from 'react-loading'
 export default function Users() {
     const [ users, setUsers ] = useState([]);
     const [ loading, setLoading ] = useState(true);
@@ -33,7 +33,7 @@ export default function Users() {
     }, [])
     return (
         loading ? 
-        <h1><AiOutlineLoading3Quarters size={24} color={'#000'} /> </h1> : 
+        <h1> <ReactLoading type={'cylon'} color={'#fd0565'} height={150} width={150} /></h1> : 
 
         users.map(user => (
             <FollowBox key={user._id}
