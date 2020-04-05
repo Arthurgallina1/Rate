@@ -11,7 +11,7 @@ export default function MyPosts() {
   const [myPosts, setMyPosts] = useState([]);
   useEffect(() => {
     async function getPosts() {
-      const res = await api.get('/post/getpost', {
+      const res = await api.post('/post/getpost', {
         userId,
       });
       setMyPosts(res.data);
@@ -27,6 +27,7 @@ export default function MyPosts() {
             key={post._id}
             postId={post._id}
             duration={post.duration}
+            path={post.path}
             title={post.title}
             description={post.description}
           />

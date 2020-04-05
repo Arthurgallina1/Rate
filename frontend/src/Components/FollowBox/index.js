@@ -29,13 +29,13 @@ export default function FolowBox({ friend, friendship }) {
 
   const buttonLabel = friendship ? 'UNFOLLOW' : 'FOLLOW';
   return (
-    <Box onClick={() => toProfile(friend._id)}>
+    <Box>
       <img
         src=" https://api.adorable.io/avatars/50/abott@adorable.png"
         alt=""
       />
       <div>
-        <p>{friend.name}</p>
+        <p onClick={() => toProfile(friend._id)}>{friend.name}</p>
         <h5>{friend.username}</h5>
         <span>{friend.comment}</span>
       </div>

@@ -61,9 +61,9 @@ export const MainFeedBox = styled.div`
   }
 
   p {
-    line-height: 1.5;
-    font-size: 15px;
-    font-weight: bold;
+    color: #db1616;
+    font-weight: bolder;
+    font-size: 14px;
   }
   a {
     color: #666;
@@ -79,15 +79,17 @@ export const MainFeedBox = styled.div`
   }
   h5 {
     color: #777;
+    margin-top: 10px;
     margin-bottom: 5px;
   }
   span {
-    font-size: 12px;
-    color: #777;
+    color: #db1616;
+    font-weight: bolder;
+    font-size: 14px;
   }
 
   big {
-    margin: 25px 0 5px 0;
+    margin: 15px 25px 5px 0;
     font-weight: bold;
     color: #db1616;
   }
