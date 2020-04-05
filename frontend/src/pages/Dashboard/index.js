@@ -15,6 +15,7 @@ export default function Dashboard() {
       async function getFeedPosts() {
         const response = await api.post('/rate/index', { followerList });
         await setPosts(response.data);
+        console.log(response.data);
       }
       getFeedPosts();
     } catch (err) {
@@ -26,7 +27,9 @@ export default function Dashboard() {
     <Container>
       <PageContainer>
         <div className="welcome">{/* <h2>DASHBOARD</h2> */}</div>
-        {/* <Link to="/createpost"><button type="button">CREATE POST</button></Link> */}
+        <Link to="/createpost">
+          <button type="button">CREATE POST</button>
+        </Link>
         <Feed>
           <div>
             {posts.map((post, i) => {

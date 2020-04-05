@@ -57,7 +57,7 @@ export default function VisitProfile({ match }) {
             {posts.length > 0 ? (
               posts.map((post, i) => {
                 let theme = i % 3;
-                return <FeedBox post={post} color={theme} />;
+                return <FeedBox key={i} post={post} color={theme} />;
               })
             ) : (
               <div className="no-post">

@@ -22,7 +22,7 @@ export const Container = styled.div`
         background: white;
         border-radius: 6px;
         padding: 15px 15px 25px 15px;
-        box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
+        /* box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75); */
 
     }
 
@@ -64,15 +64,16 @@ export const Container = styled.div`
         margin-bottom: 8px;
 
         &:hover {
-            background: ${darken(0.05, '#eee')}
+            background: opacity(0.8);
         }
     }
 
     @media (max-width: 651px ) {
 
         flex-direction: column;
-        margin-bottom: 0px;
         padding-bottom: 50px;
+        margin: 0;
+        font-size: 12px;
         button {
             background: transparent;
             border: 2px solid #333;
@@ -159,6 +160,10 @@ export const RightContainer = styled.div`
   box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75);
 
   @media (max-width: 651px) {
+    background: #fffc00;
     margin-left: 0px;
+    border-radius: 0;
+    margin-left: 0;
+    box-shadow: none;
   }
 `;
