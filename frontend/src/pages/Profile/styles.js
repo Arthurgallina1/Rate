@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-
-
-
 export const ProfileContainer = styled.div`
-       min-height: 100%;
-       background: #FFFC00;
-`
-
+  min-height: 100%;
+  background: #fffc00;
+`;
 
 export const Container = styled.div`
     
@@ -73,15 +69,28 @@ export const Container = styled.div`
     }
 
     @media (max-width: 651px ) {
+
         flex-direction: column;
         margin-bottom: 0px;
         padding-bottom: 50px;
-        
+        button {
+            background: transparent;
+            border: 2px solid #333;
+            color: #333;
+            &:hover {
+                border: 2px solid #999;
+                color: #999;
+            }
+        }
         aside { 
             padding: 15px 0;
             justify-content: center;
             text-align: center; 
             margin-bottom: 25px;
+            background: transparent;
+            border-radius: 0;
+            padding: 15px 15px 25px 15px;
+            box-shadow: none;
             p {
                 font-size: 11px;
             } 
@@ -122,43 +131,34 @@ export const Container = styled.div`
             } */
 `;
 
-
 export const Box = styled.div`
+  max-width: 200px;
 
-    max-width: 200px;
-   
-    
+  p {
+    font-size: 13px;
 
-    p {
-        font-size: 13px;
-        
-        padding: 2px 2px 10px 2px;
-        color: #333;
-    }
-    svg {
-        margin-right: 7px;
-    }
+    padding: 2px 2px 10px 2px;
+    color: #333;
+  }
+  svg {
+    margin-right: 7px;
+  }
 
-    /* span {
+  /* span {
         display: flex;
         justify-content: flex-start;
         font-size: 12px;
                 
     } */
-`
+`;
 
 export const RightContainer = styled.div`
-    background: #fff;
-    border-radius: 6px;
-    margin-left: 25px;
-    box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75);
+  background: #fff;
+  border-radius: 6px;
+  margin-left: 25px;
+  box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75);
 
-
-    @media (max-width: 651px ) {
-        margin-left: 0px;
-    
-    
-    }
-
-
-`
+  @media (max-width: 651px) {
+    margin-left: 0px;
+  }
+`;
