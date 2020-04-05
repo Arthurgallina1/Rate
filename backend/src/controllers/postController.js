@@ -1,19 +1,24 @@
 const File = require('../model/File');
 
 module.exports = {
-  /**
-    @route POST user/auth
-    @desc Auth user login
-    @access Public
-    */
-  async store(req, res) {
-    // console.log(req)
-    const { userId, duration, title, description, path } = req.body;
-    console.log(req.body);
+  //craete post
+  async storeImg(req, res) {
+    const { info } = req.body;
+    const post = await File.findOneAndUpdate(
+      { _id: info },
+      {
+        path: `${process.env.APP_URL}/files/${req.file.filename}`,
+        filename: req.file.filename,
+      },
+      { new: true, useFindAndModify: false }
+    );
+    return res.json(post);
+  },
+
+  async storePost(req, res) {
+    const { userId, duration, title, description } = req.body;
     const file = await File.create({
       userId,
-      file: path,
-      path: path,
       duration,
       title,
       description,

@@ -13,25 +13,26 @@ export default function FeedBox({ post, color }) {
   const hasVoted = post.votes.find((vote) => vote.userId == userId);
   const timeDistance = formatDistance(parseISO(post.duration), new Date());
   const timeLeft = timeleft_formatted(post.duration);
-
   function handleClick(id) {
     history.push(`/rate/${id}`);
   }
   // const dayLeftFormatted = dayLeft % 24
   return (
     <MainFeedBox color={color} onClick={() => handleClick(post._id)}>
-      <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="" />
+      <img
+        src={
+          post.path || 'https://api.adorable.io/avatars/50/abott@adorable.png'
+        }
+        alt=""
+      />
       <div>
         <h3>{post.title}</h3>
-        {/* <h5>{post.description}</h5> */}
-        <big>
-          {' '}
-          {timeDistance} {!hasVoted ? <FaBell color={'red'} size={20} /> : ''}
-        </big>
+        <span>{timeDistance}</span>
         <br />
         <h5>Tap to open.</h5>
       </div>
-      <img src={Logo} alt="" />
+      <big> {!hasVoted ? <FaBell color={'red'} size={20} /> : ''}</big>
+      {/* <img src={Logo} alt="" /> */}
     </MainFeedBox>
   );
 }
