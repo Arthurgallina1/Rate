@@ -1,51 +1,49 @@
 import styled from 'styled-components';
-import { lighten } from 'polished'
+import { lighten } from 'polished';
 
-export const Container = styled.div `
-    min-height: 100%;
-    background: #fd0565;
-
-   
-
-`
-
+export const Container = styled.div`
+  min-height: 100%;
+  background: #fd0565;
+`;
 
 export const PageContainer = styled.div`
-    position: relative;
-    top: 50px;
-    background: white;
-    background: #000;
-    box-shadow: 0px 4px 4px 1px rgba(0,0,0,0.75);
-    border-radius: 5px;
-    max-width: 860px;
+  /* position: relative; */
+  /* top: 50px; */
+
+  background: white;
+  background: #000;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.75);
+  /* border-radius: 5px; */
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* align-items: center; */
+  /* justify-content: center; */
+  h2 {
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    /* align-items: center; */
-    /* justify-content: center; */
-  
-    
-    button {
-        background: #000;
-        color: white;
-        height: 45px;
-        border: 0;
-        padding: 10px;
-        font-weight: bold;
-        margin: 15px;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-        &:hover {
-        }
+    font-weight: 100;
+    color: white;
+    padding: 20px;
+  }
+  button {
+    background: #000;
+    color: white;
+    height: 45px;
+    border: 0;
+    padding: 10px;
+    font-weight: bold;
+    margin: 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    &:hover {
     }
+  }
 
+  @media (max-width: 600px) {
+    max-width: 400px;
+  }
+`;
 
-    @media (max-width: 600px){
-        max-width: 400px;
-    }
-`
-
-export const Feed = styled.div`
-
-   
-`
+export const Feed = styled.div``;
