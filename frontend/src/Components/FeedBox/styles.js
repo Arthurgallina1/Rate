@@ -21,7 +21,7 @@ export const MainFeedBox = styled.div`
   color: black;
   display: flex;
   padding: 10px;
-  flex: 1;
+  /* flex: 1; */
   /* border-bottom: 1px solid #ccc; */
   background-color: ${(props) => handleColorType(props.color)};
   &:hover {
@@ -113,8 +113,7 @@ export const MainFeedBox = styled.div`
 
   @media (max-width: 600px) {
     font-size: 11px;
-    width: 100%;
-    margin: 0 auto;
+    margin: 0 0;
     padding: 5px;
 
     img {

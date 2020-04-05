@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
 
   background: white;
   background: #000;
-  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.75);
+  /* box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.75); */
   /* border-radius: 5px; */
   max-width: 860px;
   margin: 0 auto;
@@ -42,7 +42,8 @@ export const PageContainer = styled.div`
   }
 
   @media (max-width: 600px) {
-    max-width: 400px;
+    /* max-width: 400px; */
+    margin: 0 auto;
   }
 `;
 

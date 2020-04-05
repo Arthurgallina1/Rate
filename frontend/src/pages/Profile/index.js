@@ -10,7 +10,7 @@ export default function Profile() {
   return (
     <ProfileContainer>
       <Container>
-        <aside>
+        {/* <aside>
           <img
             src="https://api.adorable.io/avatars/50/abott@adorable.png"
             alt=""
@@ -33,7 +33,7 @@ export default function Profile() {
               <MdPinDrop size={20} color={'#333'} /> Brazil{' '}
             </span>
           </Box>
-        </aside>
+        </aside> */}
 
         <RightContainer>
           <TabSection></TabSection>
