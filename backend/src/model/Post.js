@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const FileSchema = new Schema({
+const PostSchema = new Schema({
   userId: {
     type: String,
   },
@@ -24,4 +24,4 @@ const FileSchema = new Schema({
   },
 });
 
-module.exports = model('File', FileSchema); //model nane & schema
+module.exports = model('Post', PostSchema); //model nane & schema

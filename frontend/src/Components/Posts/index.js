@@ -1,10 +1,14 @@
 import React from 'react';
 import { Container } from './styles';
 import { Link } from 'react-router-dom';
+import { parseISO, formatDistance } from 'date-fns';
 import timeleft_formatted from '../../utils/dates';
 
 export default function Posts({ duration, title, path, description, postId }) {
-  const timeLeftFormatted = timeleft_formatted(duration);
+  const isoDuration = parseISO(duration);
+  const timeLeft = formatDistance(isoDuration, new Date(), {
+    addSuffix: true,
+  });
   return (
     <Container>
       <img
@@ -15,7 +19,7 @@ export default function Posts({ duration, title, path, description, postId }) {
         <h3>{title}</h3>
         <h5>{description}</h5>
         <br />
-        <p>Time Left: {timeLeftFormatted}</p>
+        <p>Expires {timeLeft}</p>
       </div>
       <Link to={`/rate/${postId}`}>
         <button>RATE IT</button>

@@ -85,7 +85,7 @@ export default function RatePage({ match }) {
           <div className="">
             <Slider>
               <ImageSlider
-                path={post.path}
+                path={[post.path]}
                 slideImages={[
                   'https://api.adorable.io/avatars/50/abott@adorable.png',
                   'http://localhost:8000/files/a1586118827948.jpeg',

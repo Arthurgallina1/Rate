@@ -1,31 +1,38 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input } from '@rocketseat/unform';
-import { Container } from './styles'
-import { Link } from 'react-router-dom' 
+import { Container } from './styles';
+import { Link } from 'react-router-dom';
+import AvatarInput from '../Create/AvatarInput';
 
 export default function UpdateProfile() {
+  const profile = useSelector((state) => state.user.profile);
 
-    const profile = useSelector(state => state.user.profile);
+  function handleSubmit(data) {}
 
-    function handleSubmit(data){
-        console.log(data);
-        
-    }
-    
-    return (
-        <Container>
-            <Form initialData={profile} onSubmit={handleSubmit}>
-                <Input name="username" placeholder="Username"/>
-                <Input name="email" type="email" placeholder="E-mail"/>
+  return (
+    <Container>
+      <Form initialData={profile} onSubmit={handleSubmit}>
+        <Input name="username" placeholder="Username" />
+        <Input name="email" type="email" placeholder="E-mail" />
 
-                <hr />
-                <Input name="oldpassword" type="password" placeholder="Current password"/>
-                <Input name="password" type="password" placeholder="New password"/>
-                <Input name="confirmpassword" type="password" placeholder="Confirm password"/>
-                <Link to="/profile"><button>Update profile</button></Link>
-            </Form>
-
-        </Container>
-    )
+        <hr />
+        <Input
+          name="oldpassword"
+          type="password"
+          placeholder="Current password"
+        />
+        <Input name="password" type="password" placeholder="New password" />
+        <Input
+          name="confirmpassword"
+          type="password"
+          placeholder="Confirm password"
+        />
+        <AvatarInput />
+        <Link to="/profile">
+          <button>Update profile</button>
+        </Link>
+      </Form>
+    </Container>
+  );
 }
