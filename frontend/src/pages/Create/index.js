@@ -15,8 +15,7 @@ import { toast } from 'react-toastify';
 // })
 
 export default function CreatePost() {
-  // const formRef = useRef(null);
-  const [postId, setPostId] = useState('');
+  const [file, setFile] = useState(null);
   const userId = useSelector((state) => state.user.profile._id);
   const options = [
     { id: '15', title: '15 Minutes' },
@@ -25,18 +24,21 @@ export default function CreatePost() {
   ];
 
   async function handleSubmit(data) {
-    const file = data.file;
-    let result = addMinutes(new Date(), Number(data.duration));
+    const newDuration = addMinutes(new Date(), data.duration);
+    const dataFile = new FormData();
+    dataFile.append('file', file);
+    dataFile.append('title', data.title);
+    dataFile.append('duration', newDuration);
+    dataFile.append('description', data.description);
+    dataFile.append('userId', userId);
     try {
-      const response = await api.post('/post/create', {
-        userId,
-        duration: result,
-        title: data.title,
-        description: data.description,
-      });
-      setPostId(response.data._id);
+      const response = await api.post('/post/updateimg', dataFile);
       toast.success(`Post created! Duration: ${response.data.duration}`);
     } catch (err) {}
+  }
+
+  function handleChange(e) {
+    setFile(e.target.files[0]);
   }
 
   return (
@@ -51,7 +53,13 @@ export default function CreatePost() {
           type="text"
           placeholder="Description..."
         />
-        <AvatarInput name="avatar_file" postId={postId} />
+        <input
+          type="file"
+          id="avatar"
+          accept="image/*"
+          onChange={handleChange}
+        />
+        {/* <AvatarInput name="avatar_file" /> */}
 
         <button type="submit">Create post</button>
       </Form>

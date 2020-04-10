@@ -9,23 +9,22 @@ const default_props = {
 };
 
 export default function ImageSlider({
+  path,
   slideImages,
   properties = default_props,
 }) {
   const [active, setActive] = useState(0);
-  const [length, setLength] = useState(slideImages.length);
-
+  const [length, setLength] = useState(path.length);
   function handleClick() {
     active < length - 1 ? setActive(active + 1) : setActive(0);
-    console.log(active);
   }
 
   return (
     <div className="container-image">
-      {slideImages.map((img, i) => {
+      {path.map((img, i) => {
         const act = i == active ? true : false;
         return (
-          <Slider active={act}>
+          <Slider key={i} active={act}>
             <span onClick={handleClick}>{'<'}</span>
             <img src={img} alt="" />
           </Slider>

@@ -1,42 +1,34 @@
-const File = require('../model/File');
+const Post = require('../model/Post');
 
 module.exports = {
   //craete post
-  async storeImg(req, res) {
-    const { info } = req.body;
-    const post = await File.findOneAndUpdate(
-      { _id: info },
-      {
-        path: `${process.env.APP_URL}/files/${req.file.filename}`,
-        filename: req.file.filename,
-      },
-      { new: true, useFindAndModify: false }
-    );
-    return res.json(post);
-  },
 
-  async storePost(req, res) {
-    const { userId, duration, title, description } = req.body;
-    const file = await File.create({
+  async store(req, res) {
+    const { title, duration, description, userId } = req.body;
+    const file = req.file;
+    const newFile = await Post.create({
       userId,
       duration,
       title,
       description,
+      filename: file.filename,
+      path: `${process.env.APP_URL}/files/${file.filename}`,
     });
-    return res.json(file);
+
+    return res.json(newFile);
   },
 
   async index(req, res) {
     const { userId } = req.body;
 
-    const posts = await File.find();
+    const posts = await Post.find();
     return res.json(posts);
   },
 
   async show(req, res) {
     const { postid } = req.params;
 
-    const posts = await File.findById(postid);
+    const posts = await Post.findById(postid);
 
     return res.json(posts);
   },
@@ -44,7 +36,7 @@ module.exports = {
   async myposts(req, res) {
     const { userId } = req.body;
 
-    const posts = await File.find({ userId });
+    const posts = await Post.find({ userId });
 
     return res.json(posts);
   },
