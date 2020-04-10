@@ -15,6 +15,7 @@ export default function Dashboard() {
       async function getFeedPosts() {
         const response = await api.post('/rate/index', { followerList });
         await setPosts(response.data);
+        console.log(response.data);
       }
       getFeedPosts();
     } catch (err) {

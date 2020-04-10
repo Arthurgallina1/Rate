@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "global": "^4.4.0",
-    "knex": "^0.20.13"
-  }
-}
