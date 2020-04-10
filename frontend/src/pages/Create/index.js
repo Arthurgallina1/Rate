@@ -7,6 +7,7 @@ import api from '../../utils/api';
 import AvatarInput from './AvatarInput';
 import { format, addMinutes, parseISO } from 'date-fns';
 import { toast } from 'react-toastify';
+import history from '../../utils/history';
 
 // const schema = Yup.object().shape({
 //     title: Yup.string().required('Title is required!'),
@@ -33,7 +34,8 @@ export default function CreatePost() {
     dataFile.append('userId', userId);
     try {
       const response = await api.post('/post/updateimg', dataFile);
-      toast.success(`Post created! Duration: ${response.data.duration}`);
+      toast.success(`Post created!`);
+      setTimeout(() => history.push(`rate/${response.data._id}`), 500);
     } catch (err) {}
   }
 

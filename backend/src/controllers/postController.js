@@ -1,4 +1,6 @@
 const Post = require('../model/Post');
+const User = require('../model/UserSchema');
+const Notification = require('../model/NotificationSchema');
 
 module.exports = {
   //craete post
@@ -14,6 +16,20 @@ module.exports = {
       filename: file.filename,
       path: `${process.env.APP_URL}/files/${file.filename}`,
     });
+
+    //Notifications
+    const user = await User.findById({ _id: userId });
+
+    const Notifications = await Promise.all(
+      user.followers.map(async (follower) => {
+        const content = `Your friend ${user.name} needs your RATE!`;
+        const notification = await Notification.create({
+          content,
+          userId: follower,
+          read: false,
+        });
+      })
+    );
 
     return res.json(newFile);
   },
