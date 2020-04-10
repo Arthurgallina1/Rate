@@ -6,7 +6,10 @@
   "license": "MIT",
   "scripts": {
     "startdev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "knex:make": "knex migration:make --knexfile /src/knexfile.js",
+    "knex:migrate": "knex migration:latest --knexfile src/knexfile.js",
+    "knex:rollback": "knex migration:rollback --knexfile src/knexfile.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -15,10 +18,12 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.20.13",
     "mongoose": "^5.9.7",
     "morgan": "^1.9.1",
     "multer": "^1.4.2",
-    "passport": "^0.4.1"
+    "passport": "^0.4.1",
+    "pg": "^8.0.2"
   },
   "devDependencies": {
     "morgan": "^1.9.1",

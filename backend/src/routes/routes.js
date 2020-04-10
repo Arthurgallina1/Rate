@@ -8,12 +8,16 @@ const dashboardController = require('../controllers/dashboardController');
 const postController = require('../controllers/postController');
 const notificationController = require('../controllers/notificationController');
 const rateController = require('../controllers/rateController');
+const userController = require('../controllers/userController');
 const authMiddleware = require('../middlewares/auth');
 const routes = express.Router();
 const upload = multer(multerConfig);
 
-routes.post('/user/register', authController.store);
-routes.post('/user/auth', authController.auth);
+// routes.post('/user/register', authController.store);
+routes.post('/user/test', userController.auth);
+routes.post('/user/register', userController.store);
+// routes.post('/user/auth', authController.auth);
+routes.post('/user/auth', userController.auth);
 routes.get('/user/show', authController.index);
 routes.use(authMiddleware);
 routes.get('/user/info/:id', authController.show);
