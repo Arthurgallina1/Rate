@@ -32,24 +32,22 @@ export default function Overview() {
               facilis quo, asperiores modi.
             </p>
             <span>
-              <MdPinDrop size={20} color={'#333'} /> Brazil{' '}
+              <MdPinDrop size={20} color={'#ccc'} /> Brazil{' '}
             </span>
           </Box>
         </aside>
         <h3>Your Profile</h3>
         <hr />
+        <br />
         <h4>
           Joined <strong>July 2019</strong>{' '}
         </h4>
-        <h4>
-          <strong>{user.following.length}</strong> Following <strong>|</strong>{' '}
-          <strong>{user.followers.length}</strong> Followers
-        </h4>
+
         <h4>
           <strong>{context.post.length}</strong> Posts
         </h4>
       </ProfileCont>
-      <Container>
+      {/* <Container>
         <h3>Your Posts</h3>
         <hr />
         <h4>
@@ -58,7 +56,7 @@ export default function Overview() {
         <h4>
           <strong>9.3 </strong>Best rating
         </h4>
-      </Container>
+      </Container> */}
       <Container>{/* <renderLineChart /> */}</Container>
     </ContainerView>
   );

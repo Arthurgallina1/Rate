@@ -7,23 +7,24 @@ export const Container = styled.div`
     flex: 1;
     border: 0;
     padding: 20px;
+    background: rgb(25, 39, 52);
     font-weight: 500;
-    color: #666;
+    color: #ccc;
   }
 
   .react-tabs__tab-list {
-    border-bottom: 1px solid #aaa;
+    /* border-bottom: 0.5px solid #ccc; */
+    margin: 0;
   }
 
   .react-tabs__tab--selected {
-    border-bottom: 2.5px solid #fd0565;
+    border-bottom: 2.5px solid rgb(29, 161, 242);
+    color: white;
     font-weight: 600;
-    color: #24292e;
-    background: #fffc00;
 
     @media (max-width: 651px) {
       .react-tabs__tab--selected {
-        background: #fffc00 !important;
+        background: rgb(25, 39, 52) !important;
       }
     }
   }

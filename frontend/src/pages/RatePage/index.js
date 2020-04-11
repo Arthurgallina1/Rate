@@ -22,7 +22,7 @@ import SVGIconFull from '../../assets/estrelao.png';
 
 export default function RatePage({ match }) {
   const [rateVote, setRateVote] = useState(0);
-  const userId = useSelector((state) => state.user.profile._id);
+  const userId = useSelector((state) => state.user.profile.id);
 
   const username = useSelector((state) => state.user.profile.username);
   const [post, setPost] = useState({});
@@ -54,12 +54,12 @@ export default function RatePage({ match }) {
       const response = await api.get(`/post/show/${match.params.id}`);
       await setPost(response.data);
       const votesArray = response.data.votes;
-      //full array
+      //full array com as infos dos usuario
       const allVotesArray = await Promise.all(
         votesArray.map(async (vote) => {
           let response = await api.get(`user/info/${vote.userId}`);
           const PostInfo = { ...vote, ...response.data };
-          if (userId === PostInfo.user._id) {
+          if (userId === PostInfo.id) {
             setHasVoted(true);
           }
           return PostInfo;
@@ -133,9 +133,9 @@ export default function RatePage({ match }) {
           </RatingDiv>
         )}
         <Comments>
-          {allVotes.map((vote) => (
-            <RateBox key={vote.comment} rateInfo={vote} rate={vote.rate} />
-          ))}
+          {allVotes.map((vote) => {
+            return <RateBox key={vote.userId} rateInfo={vote} />;
+          })}
         </Comments>
       </Box>
     </Container>

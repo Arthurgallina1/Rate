@@ -7,21 +7,41 @@ import FeedBox from '../../Components/FeedBox';
 import { isBefore } from 'date-fns';
 
 export default function Dashboard() {
-  const followerList = useSelector((state) => state.user.profile.following);
+  const userId = useSelector((state) => state.user.profile.id);
   const [posts, setPosts] = useState([]);
+  const [followingList, setFollowingList] = useState([]);
+  let followerList = [];
 
   useEffect(() => {
-    try {
-      async function getFeedPosts() {
+    async function getFollowing() {
+      try {
+        const res = await api.get(`friendship/index/${userId}`);
+        await res.data.map((post) => followerList.push(post.id));
+
         const response = await api.post('/rate/index', { followerList });
         await setPosts(response.data);
+<<<<<<< HEAD
         console.log(response.data);
+=======
+      } catch (err) {
+        console.debug('Dashboard', err);
+>>>>>>> new-dev
       }
-      getFeedPosts();
-    } catch (err) {
-      console.log(err);
     }
+    getFollowing();
   }, []);
+
+  // useEffect(() => {
+  //   try {
+  //     async function getFeedPosts() {
+  //       const response = await api.post('/rate/index', { followerList });
+  //       await setPosts(response.data);
+  //     }
+  //     getFeedPosts();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // }, []);
 
   return (
     <Container>

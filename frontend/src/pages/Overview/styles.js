@@ -21,7 +21,7 @@ export const Container = styled.div`
   }
 
   strong {
-    color: black;
+    color: white;
   }
 `;
 

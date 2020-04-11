@@ -1,56 +1,93 @@
 const User = require('../model/UserSchema');
-
+const connection = require('../utils/connection');
 
 module.exports = {
-    
-    /**
-    @route POST add
-    @desc Add user with :id
-    @access Public
+  /**
+    @route GET friendship/index/:following_id
+    @desc Getting all user's is following
+    @access Auth'ed
     */
-    async store(req, res) {
-        
-        try {
-            const { currentUserId, userToBeAddId } = req.body;
+  async index(req, res) {
+    const { following_id } = req.params;
 
-            const currentUser = await User.findById(currentUserId);
-            const userToBeAdd = await User.findById(userToBeAddId);
-            
+    const following = await connection('friendship')
+      .select(
+        'users.id',
+        'friendship',
+        'followed_id',
+        'following_id',
+        'name',
+        'email',
+        'username'
+      )
+      .join('users', { 'users.id': 'followed_id' })
+      .where('following_id', following_id);
 
-            if (!userToBeAdd) {
-                return res.status(400).json({ error: 'Dev not exists' })
-            }
+    return res.status(200).json(following);
+  },
 
-            currentUser.following.push(userToBeAdd._id);
-            await currentUser.save();
-            userToBeAdd.followers.push(currentUser._id);
-            await userToBeAdd.save();
+  /**
+    @route GET friendship/followers/:followed_id
+    @desc Getting all user's followers
+    @access Auth'ed
+    */
+  async indexFollower(req, res) {
+    const { followed_id } = req.params;
 
-            return res.json(currentUser)
+    const following = await connection('friendship')
+      .select(
+        'friendship.id',
+        'friendship',
+        'followed_id',
+        'following_id',
+        'name',
+        'email',
+        'username'
+      )
+      .join('users', { 'users.id': 'following_id' })
+      .where('followed_id', followed_id);
 
-            
-            } catch (err) {
-                console.log(err);
-                
-            }
-        },
-    
-        async remove(req, res) {
-            try {   
-                const { currentUserId, unfollowId } = req.body;
-                const currentUser = await User.findById(currentUserId);
-                const restList = currentUser.following.filter(id => {
-                    let idString = JSON.stringify(id)   
-                    const formatedId = idString.replace('"', '').replace('"', '');
-                    return formatedId !== unfollowId
-                })
-                let updatedUser = await User.findOneAndUpdate({
-                    _id: currentUserId
-                }, { following : restList })                 
+    return res.status(200).json(following);
+  },
 
-                return res.json(updatedUser)
-            } catch (err) {
-
-            }
-        }
+  /**
+    @route POST friendship/add
+    @desc Follow user
+    @access Auth'ed
+    */
+  /** 
+      @TODO verify if friendship doesn't exists.
+      */
+  async store(req, res) {
+    const { following_id, followed_id } = req.body;
+    try {
+      const [id] = await connection('friendship')
+        .insert({
+          following_id,
+          followed_id,
+        })
+        .returning('id');
+      return res.status(201).json({ id, success: true });
+    } catch (err) {
+      return res.status(400).json(err);
     }
+  },
+
+  /**
+    @route DELETE friendship/remove
+    @desc Delete this friendship
+    @access Auth'ed
+    */
+  async remove(req, res) {
+    const { following_id, followed_id } = req.body;
+    try {
+      const respon = await connection('friendship')
+        .where('friendship.following_id', following_id)
+        .andWhere('friendship.followed_id', followed_id)
+        .del();
+      return res.status(204).json({ success: true });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+};

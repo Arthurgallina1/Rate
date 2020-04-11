@@ -29,14 +29,11 @@ module.exports = {
     */
   async index(req, res) {
     const { followerList } = req.body;
-    console.log(req.body);
-
     const posts = await Post.find({
       userId: {
         $in: followerList,
       },
     });
-
     return res.json(posts);
   },
 };

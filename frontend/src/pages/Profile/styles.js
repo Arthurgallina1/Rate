@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const ProfileContainer = styled.div`
   min-height: 100%;
-  background: #fffc00;
+  background: rgb(25, 39, 52);
 `;
 
 export const Container = styled.div`
@@ -34,19 +34,19 @@ export const Container = styled.div`
         width: 200px;
         height: 175px;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 50%;
         margin-bottom: 10px;
     }
 
     h3 {
-        color: #333;
+        color: white;
         align-self: start;
         padding: 5px 0 0 0;
 
     }
     h4 {
         align-self: start;
-        color: #666;
+        color: #ccc;
         padding: 0 0 10px 0;
         font-size: 12px;
     }
@@ -76,11 +76,11 @@ export const Container = styled.div`
         font-size: 12px;
         button {
             background: transparent;
-            border: 2px solid #333;
-            color: #333;
+            border: 2px solid rgb(29,161,242);
+            color: #ccc;
             &:hover {
-                border: 2px solid #999;
-                color: #999;
+                background: rgb(29,161,242);
+
             }
         }
         aside { 
@@ -93,7 +93,8 @@ export const Container = styled.div`
             padding: 15px 15px 25px 15px;
             box-shadow: none;
             p {
-                font-size: 11px;
+                font-size: 12px;
+                color: #ccc;
             } 
             h3 {
                 align-self: center;
@@ -103,6 +104,7 @@ export const Container = styled.div`
             }
             span {
                 align-self: center;
+                color: #ccc;
             }
         }
 
@@ -139,7 +141,7 @@ export const Box = styled.div`
     font-size: 13px;
 
     padding: 2px 2px 10px 2px;
-    color: #333;
+    color: #ccc;
   }
   svg {
     margin-right: 7px;
@@ -160,7 +162,7 @@ export const RightContainer = styled.div`
   box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75);
 
   @media (max-width: 651px) {
-    background: #fffc00;
+    background: rgb(25, 39, 52);
     margin-left: 0px;
     border-radius: 0;
     margin-left: 0;

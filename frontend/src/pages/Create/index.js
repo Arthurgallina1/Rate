@@ -17,7 +17,7 @@ import history from '../../utils/history';
 
 export default function CreatePost() {
   const [file, setFile] = useState(null);
-  const userId = useSelector((state) => state.user.profile._id);
+  const userId = useSelector((state) => state.user.profile.id);
   const options = [
     { id: '15', title: '15 Minutes' },
     { id: '60', title: '1 Hour' },
@@ -33,7 +33,7 @@ export default function CreatePost() {
     dataFile.append('description', data.description);
     dataFile.append('userId', userId);
     try {
-      const response = await api.post('/post/updateimg', dataFile);
+      const response = await api.post('/post/store', dataFile);
       toast.success(`Post created!`);
       setTimeout(() => history.push(`rate/${response.data._id}`), 500);
     } catch (err) {}

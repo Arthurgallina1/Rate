@@ -1,6 +1,7 @@
 const Post = require('../model/Post');
 const User = require('../model/UserSchema');
 const Notification = require('../model/NotificationSchema');
+const connection = require('../utils/connection');
 
 module.exports = {
   //craete post
@@ -17,15 +18,32 @@ module.exports = {
       path: `${process.env.APP_URL}/files/${file.filename}`,
     });
 
-    //Notifications
-    const user = await User.findById({ _id: userId });
+    // Notifications
+    // Get every follower
+    const following = await connection('friendship')
+      .select(
+        'users.id',
+        'friendship',
+        'followed_id',
+        'following_id',
+        'name',
+        'email',
+        'username'
+      )
+      .join('users', { 'users.id': 'following_id' })
+      .where('followed_id', userId);
+
+    const user = await connection('users')
+      .select('name')
+      .where('id', userId)
+      .first();
 
     const Notifications = await Promise.all(
-      user.followers.map(async (follower) => {
+      following.map(async (follower) => {
         const content = `Your friend ${user.name} needs your RATE!`;
         const notification = await Notification.create({
           content,
-          userId: follower,
+          userId: follower.id,
           read: false,
         });
       })

@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import 'react-perfect-scrollbar/dist/css/styles.css'; 
+import 'react-perfect-scrollbar/dist/css/styles.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tabs/style/react-tabs.css';
+import '../fonts/Zilla_Slab/ZillaSlab-Medium.ttf';
 
 export default createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -45,4 +46,4 @@ export default createGlobalStyle`
         cursor: pointer;
     }
 
-`
+`;

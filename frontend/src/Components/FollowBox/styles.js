@@ -1,20 +1,70 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
   display: flex;
-  padding: 10px;
   border-bottom: 1px solid white;
+  padding: 8px 0 0 0;
+  background: rgb(25, 39, 52);
+  font-family: 'Zilla Slab', serif !important;
 
-  img {
-    height: 60px;
-    width: 50px;
-    padding: 5px 5px;
-    border: 0px;
-    border-radius: 2px;
+  .img-box {
+    flex: 1;
+    img {
+      height: 50px !important;
+      width: 50px !important;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
   }
 
   div {
     padding: 5px 10px;
+  }
+
+  .button-box {
+    flex: 1;
+    button {
+      background: rgb(29, 161, 242);
+      border: 1px solid rgb(29, 161, 242);
+      color: white;
+      height: 30px;
+      padding: 0px 25px;
+      border-radius: 9999px;
+      width: 110px;
+      font-size: 9px;
+      margin: 0;
+
+      &:hover {
+        background: rgb(202, 32, 85);
+        border: 1px solid rgb(202, 32, 85);
+        color: white;
+      }
+    }
+  }
+
+  .follow-box-info {
+    margin-left: 3px;
+    padding: 5px;
+    margin-bottom: 6px;
+    flex: 5;
+    display: flex;
+    flex-flow: column wrap;
+    color: white;
+
+    p {
+      font-size: 14px;
+      strong {
+        color: white;
+      }
+    }
+    h5 {
+      color: #888;
+    }
+    span {
+      color: white;
+      font-size: 9px;
+    }
   }
 
   p {

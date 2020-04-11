@@ -10,31 +10,6 @@ export default function Profile() {
   return (
     <ProfileContainer>
       <Container>
-        {/* <aside>
-          <img
-            src="https://api.adorable.io/avatars/50/abott@adorable.png"
-            alt=""
-          />
-
-          <h3>{profile.name}</h3>
-          <h4>{profile.username}</h4>
-
-          <Link to="/updateprofile">
-            {' '}
-            <button>Edit Profile</button>
-          </Link>
-          <Box>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum
-              aspernatur laboriosam obcaecati consectetur dolorem rerum enim
-              facilis quo, asperiores modi.
-            </p>
-            <span>
-              <MdPinDrop size={20} color={'#333'} /> Brazil{' '}
-            </span>
-          </Box>
-        </aside> */}
-
         <RightContainer>
           <TabSection></TabSection>
         </RightContainer>
