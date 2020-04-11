@@ -8,11 +8,10 @@ import { FaBell } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
 import history from '../../utils/history';
 export default function FeedBox({ post, color }) {
-  const userId = useSelector((state) => state.user.profile._id);
+  const userId = useSelector((state) => state.user.profile.id);
 
   const hasVoted = post.votes.find((vote) => vote.userId == userId);
   const timeDistance = formatDistance(parseISO(post.duration), new Date());
-  const timeLeft = timeleft_formatted(post.duration);
   function handleClick(id) {
     history.push(`/rate/${id}`);
   }
@@ -25,7 +24,7 @@ export default function FeedBox({ post, color }) {
         }
         alt=""
       />
-      <div>
+      <div className="post-info-box">
         <h3>{post.title}</h3>
         <span>{timeDistance}</span>
         <br />

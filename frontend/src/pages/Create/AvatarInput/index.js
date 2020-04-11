@@ -32,7 +32,7 @@ export default function AvatarInput({ duration, postId }) {
     const file = e.target.files?.[0];
     setPath(URL.createObjectURL(file));
     // console.log(file);
-    const response = await api.post('/post/updateimg', data);
+    const response = await api.post('/post/store', data);
     setFile(data);
     // setFile(e.target.files[0]);
   }

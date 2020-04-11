@@ -5,6 +5,7 @@ exports.up = function (knex) {
     table.string('email').notNullable().unique();
     table.string('username').notNullable().unique();
     table.string('password').notNullable();
+    table.string('avatar_url');
     table.datetime('createdAt').defaultTo(knex.fn.now());
     table.datetime('updatedAt').defaultTo(knex.fn.now());
   });

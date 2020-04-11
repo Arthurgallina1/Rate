@@ -7,7 +7,7 @@ import { Container } from './styles';
 
 export default function MyPosts() {
   // const posts = useContext(UserContext);
-  const userId = useSelector((state) => state.user.profile._id);
+  const userId = useSelector((state) => state.user.profile.id);
   const [myPosts, setMyPosts] = useState([]);
   useEffect(() => {
     async function getPosts() {

@@ -35,11 +35,21 @@ export default function TabSection() {
     <Container>
       <Tabs>
         <TabList>
-          <Tab>Profile</Tab>
-          <Tab>Following</Tab>
-          <Tab>Followers</Tab>
-          <Tab>Users</Tab>
-          <Tab>Post</Tab>
+          <Tab>
+            <strong>Profile</strong>
+          </Tab>
+          <Tab>
+            <strong>Following</strong>
+          </Tab>
+          <Tab>
+            <strong>Followers</strong>
+          </Tab>
+          <Tab>
+            <strong>Users</strong>
+          </Tab>
+          <Tab>
+            <strong>Post</strong>
+          </Tab>
           {/* <Tab>Testes</Tab>
                 <Tab>Testes2</Tab> */}
         </TabList>

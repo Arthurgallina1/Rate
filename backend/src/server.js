@@ -21,7 +21,7 @@ mongoose.connect(
 const port = process.env.PORT || 8000;
 
 app.use(express.json());
-app.use(morgan('common'));
+// app.use(morgan('common'));
 app.use(
   '/files',
   express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))

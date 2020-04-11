@@ -20,7 +20,7 @@ export const MainFeedBox = styled.div`
   /* min-width: 860px; */
   color: black;
   display: flex;
-  padding: 10px;
+  padding: 25px;
   /* flex: 1; */
   /* border-bottom: 1px solid #ccc; */
   background-color: ${(props) => handleColorType(props.color)};
@@ -46,18 +46,20 @@ export const MainFeedBox = styled.div`
       box-shadow: 0 0 0 20px rgba(253, 5, 101, 0.4);
     }
   }
-
+  .div-img {
+    flex: 1;
+  }
   img {
-    height: 60px;
-    width: 50px;
-    padding: 5px 5px;
+    height: 60px !important;
+    width: 60px !important;
     border: 0px;
-    border-radius: 2px;
+    margin-right: 25px;
+    border-radius: 50%;
   }
 
   div {
-    padding: 5px 10px;
-    flex: 2;
+    /* padding: 5px 10px; */
+    flex: 6;
   }
 
   p {
@@ -89,6 +91,7 @@ export const MainFeedBox = styled.div`
   }
 
   big {
+    flex: 1;
     margin: 15px 25px 5px 0;
     font-weight: bold;
     color: #db1616;
@@ -116,11 +119,13 @@ export const MainFeedBox = styled.div`
   @media (max-width: 600px) {
     font-size: 11px;
     margin: 0 0;
-    padding: 5px;
+    padding: 10px;
 
     img {
-      height: 40px !important;
-      width: 40px !important;
+      height: 60px !important;
+      width: 60px !important;
+      border: 1px solid #eee;
+      margin-right: 10px;
     }
   }
 `;
