@@ -104,17 +104,26 @@ module.exports = {
   async show(req, res) {
     const { id } = req.params;
     const user = await connection('users')
-      .select(['id', 'name', 'email', 'username'])
+      .select(['id', 'name', 'email', 'username', 'avatar_url'])
       .where('id', id)
       .first();
     return res.status(200).json(user);
   },
 
   async update(req, res) {
-    const { email, oldPassword, userId } = req.body;
-    console.log(req.body);
+    const { userId, type } = req.body;
     const file = req.file;
-    console.log(file);
+    const path = `${process.env.APP_URL}/files/${file.filename}`;
+
+    type === 'avatar'
+      ? await connection('users')
+          .where({ id: Number(userId) })
+          .update({ avatar_url: path })
+      : await connection('users')
+          .where({ id: Number(userId) })
+          .update({ bg_url: path });
+
+    return res.status(200).json({ success: true, path });
 
     // const user = await connection('users')
     //   .select('*')
@@ -151,5 +160,12 @@ module.exports = {
     //     email,
     //     avatar
     // })
+  },
+
+  async updateavatar(req, res) {
+    const { userId } = req.body;
+    const { file } = req.file;
+
+    console.log(userId, file);
   },
 };

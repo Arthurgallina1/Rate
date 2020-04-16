@@ -22,6 +22,7 @@ routes.use(authMiddleware);
 routes.get('/user/show', authController.index);
 routes.get('/user/index/:following_id', userController.index);
 routes.get('/user/info/:id', userController.show);
+routes.post('/user/updateavatar', upload.single('file'), userController.updateavatar); // prettier-ignore
 routes.post('/user/update', upload.single('file'), userController.update);
 // routes.post('/add', friendshipController.store);
 routes.get('/friendship/index/:following_id', friendshipController.index);
