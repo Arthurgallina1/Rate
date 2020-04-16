@@ -1,62 +1,114 @@
 import styled from 'styled-components';
 
 export const Box = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
+  display: flex;
+  border-bottom: 1px solid white;
+  padding: 8px 0 0 0;
+  background: rgb(25, 39, 52);
+  font-family: 'Zilla Slab', serif !important;
 
-    display: flex;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-
+  .img-box {
+    flex: 1;
     img {
-        height: 60px;
-        width: 50px;
-        padding: 5px 5px;
-        border: 0px;
-        border-radius: 2px;
+      height: 50px !important;
+      width: 50px !important;
+      border: 1px solid white;
+      border-radius: 50% !important;
     }
+  }
 
-    div {
-        padding: 5px 10px;
+  div {
+    padding: 5px 10px;
+  }
+
+  .button-box {
+    flex: 1;
+    button {
+      background: rgb(29, 161, 242);
+      border: 1px solid rgb(29, 161, 242);
+      color: white;
+      height: 30px;
+      padding: 0px 25px;
+      border-radius: 9999px;
+      width: 110px;
+      font-size: 9px;
+      margin: 0;
+
+      &:hover {
+        background: rgb(202, 32, 85);
+        border: 1px solid rgb(202, 32, 85);
+        color: white;
+      }
+    }
+  }
+
+  .follow-box-info {
+    margin-left: 3px;
+    padding: 5px;
+    margin-bottom: 6px;
+    flex: 5;
+    display: flex;
+    flex-flow: column wrap;
+    color: white;
+
+    strong {
+      font-size: 14px;
     }
 
     p {
-        line-height: 1.5;
-        font-size: 15px;
-        font-weight: bold;
-    }
-    a {
-        color: #666;
-        margin-bottom: 5px;
-
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      strong {
+        color: white;
         &:hover {
-            color: #0366d6;
+          color: rgb(29, 161, 242);
         }
+      }
+      
     }
     h5 {
-        color: #777;
-        margin-bottom: 5px;
+      color: #888;
+      padding: 0px !important;
+
     }
     span {
-        font-size: 12px;
-        color: #777;
-
+      color: white;
+      font-size: 10px;
     }
+  }
 
-    button {
-        margin: 20px 15px;
-        width: 140px;
-        height: 30px;
-        color: #24292e;
-        font-weight: 600;
-        background-color: #eff3f6;
-        font-size: 9px;
-        background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%); 
+
+  }
+  a {
+    color: #666;
+    margin-bottom: 5px;
+
+    &:hover {
+      color: #0366d6;
     }
+  }
+  h5 {
+    color: #777;
+    margin-bottom: 5px;
+  }
+  span {
+    font-size: 12px;
+    color: #777;
+  }
 
-`
+  button {
+    margin: 20px 15px;
+    width: 140px;
+    border: 1px solid #00ff37;
+    height: 30px;
+    color: white;
+    font-weight: 600;
+    background-color: #00ff37;
+    opacity: 0.9;
+    font-size: 9px;
+  }
+`;
 
-
-export const RateBox = styled.div`
-
-
-
-`
+export const RateBox = styled.div``;

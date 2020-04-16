@@ -13,6 +13,7 @@ export default function Users() {
     async function getUsers() {
       try {
         const res = await api.get(`/user/index/${userId}`);
+        console.log(res.data);
         await setUsers(res.data);
         setLoading(false);
       } catch (err) {

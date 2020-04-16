@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Form, Input, Textarea } from '@rocketseat/unform';
 import { Container, ContainerBg, ContainerUpdate } from './styles';
 import { Link } from 'react-router-dom';
+import Banner from '../Create/Banner';
 import AvatarInput from '../Create/AvatarInput';
 import api from '../../utils/api';
 import { toast } from 'react-toastify';
@@ -29,9 +30,15 @@ export default function UpdateProfile() {
 
   return (
     <ContainerUpdate>
-      <ContainerBg></ContainerBg>
+      <ContainerBg>
+        <Banner
+        // banner_url={'http://localhost:8000/files/a1587003579959.jpeg'}
+        />
+      </ContainerBg>
       <Container>
-        <img src="http://localhost:8000/files/a1586392949075.png" alt="" />
+        <AvatarInput
+        // avatar_url={'http://localhost:8000/files/a1587003579959.jpeg'}
+        />
         <Form initialData={profile} onSubmit={handleSubmit}>
           <Input name="username" placeholder="Username" />
           <Input name="email" type="email" placeholder="E-mail" />
@@ -55,7 +62,6 @@ export default function UpdateProfile() {
             accept="image/*"
             onChange={handleChange}
           />
-          {/* <AvatarInput /> */}
           <button>
             <strong>Update profile</strong>
           </button>

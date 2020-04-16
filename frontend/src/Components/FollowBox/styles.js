@@ -54,9 +54,15 @@ export const Box = styled.div`
 
     p {
       font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
       strong {
         color: white;
+        &:hover {
+          color: rgb(29, 161, 242);
+        }
       }
+      
     }
     h5 {
       color: #888;
@@ -67,15 +73,7 @@ export const Box = styled.div`
     }
   }
 
-  p {
-    line-height: 1.5;
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: pointer;
-    &:hover {
-      color: #0366d6;
-    }
+
   }
   a {
     color: #666;

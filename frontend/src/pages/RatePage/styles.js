@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   /* cc1616 */
   width: 100%;
-  background: #db1616;
+  background: rgb(25, 39, 52);
   height: 200vh;
 `;
 export const Slider = styled.div`
@@ -36,7 +36,7 @@ export const Box = styled.div`
   position: relative;
   top: 25px;
   color: white;
-  background: #db1616;
+  background: rgb(25, 39, 52);
   /* box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75); */
   /* border-radius: 5px; */
 

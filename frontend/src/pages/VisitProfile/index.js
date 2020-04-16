@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { VisitContainer, CardContainer } from './styles';
+import { Container, ContainerBg, ContainerUpdate } from './styles';
 import { useParams } from 'react-router-dom';
 import FeedBox from '../../Components/FeedBox';
 import { useFetch } from '../../utils/hooks';
+import Banner from '../Create/Banner';
 import api from '../../utils/api';
 
 export default function VisitProfile({ match }) {
@@ -21,52 +22,45 @@ export default function VisitProfile({ match }) {
     getUserInfo();
   }, []);
 
-  useEffect(() => {
-    async function getUserPosts() {
-      const res = await api.post('post/getpost', { userId: id });
-      setPosts(res.data);
-    }
-    getUserPosts();
-  }, []);
+  // useEffect(() => {
+  //   async function getUserPosts() {
+  //     const res = await api.post('post/getpost', { userId: id });
+  //     setPosts(res.data);
+  //   }
+  //   getUserPosts();
+  // }, []);
 
   return (
-    <VisitContainer>
-      {loading ? (
-        'Loading'
-      ) : (
-        <CardContainer>
-          <img
-            src="https://api.adorable.io/avatars/50/abott@adorable.png"
-            alt=""
-          />
-          <h3>{userInfo.user.name}</h3>
-          <h4>{userInfo.user.username}</h4>
-
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, sed!
-          </p>
-          <div className="footer">
-            <p>
-              <strong>{userInfo.user.followers.length}</strong> Followers{' '}
-              <strong>| {userInfo.user.following.length} </strong>
-              Following <strong>| 3</strong> Posts
-            </p>
+    <ContainerUpdate>
+      <ContainerBg>
+        <Banner banner_url={'http://localhost:8000/files/a1586544277143.png'} />
+      </ContainerBg>
+      <Container>
+        <div className="upper-box">
+          <img src="http://localhost:8000/files/a1586544277143.png" alt="" />
+          <button>
+            <strong>FOLLOW</strong>
+          </button>
+          <div className="middle-box">
+            <h3>Arhtur Gallina</h3>
+            <h4>atg</h4>
+            <br />
+            <span>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
+              nihil labore sunt!
+            </span>
+            <div className="lower-box">
+              <strong>400</strong> Following <strong>333</strong> Followers
+            </div>
+            <br />
+            <div className="posts">
+              <h3>
+                <strong>RATES</strong>
+              </h3>
+            </div>
           </div>
-          <h2>T I M E L I N E</h2>
-          <div className="posts">
-            {posts.length > 0 ? (
-              posts.map((post, i) => {
-                let theme = i % 3;
-                return <FeedBox key={i} post={post} color={theme} />;
-              })
-            ) : (
-              <div className="no-post">
-                <h2>No posts yet!</h2>
-              </div>
-            )}
-          </div>
-        </CardContainer>
-      )}
-    </VisitContainer>
+        </div>
+      </Container>
+    </ContainerUpdate>
   );
 }

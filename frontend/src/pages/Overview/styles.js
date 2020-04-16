@@ -34,6 +34,11 @@ export const ProfileCont = styled.div`
   h4 {
     align-self: center;
   }
+
+  img {
+    height: 100px;
+    width: 100px;
+  }
 `;
 
 export const Box = styled.div`

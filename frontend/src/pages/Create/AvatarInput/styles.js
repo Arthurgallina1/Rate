@@ -12,11 +12,11 @@ export const Container = styled.div`
     }
 
     img {
-      height: 140px;
-      width: 240px;
+      height: 100px;
+      width: 100px;
+      border: 6px solid #15202b;
       border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.3);
-      background: #eee;
+      background: #15202b;
     }
 
     input {

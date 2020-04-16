@@ -1,24 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useField } from '@rocketseat/unform';
-import api from '../../../utils/api';
 import { useSelector } from 'react-redux';
+import api from '../../../utils/api';
+import { FaCamera } from 'react-icons/fa';
 
 import { Container } from './styles';
-export default function AvatarInput({ avatar_url }) {
-  const { defaultValue, registerField } = useField('avatar');
-  const [file, setFile] = useState(defaultValue && defaultValue.id);
+export default function Banner({ banner_url }) {
+  const { defaultValue, registerField } = useField('banner');
   const [hasCover, setHasCover] = useState(false);
-  const [preview, setPreview] = useState(defaultValue && defaultValue.url);
+  const [file, setFile] = useState(defaultValue && defaultValue.id);
+  const [preview, setPreview] = useState(null);
   const userId = useSelector((state) => state.user.profile.id);
 
+  // if (banner_url) setHasCover(true);
   const ref = useRef();
   //informar o file pro unform
   useEffect(() => {
     if (ref.current) {
       registerField({
-        name: 'avatar_id',
+        name: 'file',
         ref: ref.current,
-        path: 'dataset.file', // onde vai buscar o valor input
+        path: 'files[0]', // onde vai buscar o valor input
       });
     }
   }, [ref, registerField]);
@@ -26,7 +28,7 @@ export default function AvatarInput({ avatar_url }) {
   async function handleChange(e) {
     const data = new FormData();
     data.append('file', e.target.files[0]);
-    data.append('type', 'avatar');
+    data.append('type', 'banner_url');
     data.append('userId', userId);
 
     const res = await api.post('/user/update', data);
@@ -36,19 +38,16 @@ export default function AvatarInput({ avatar_url }) {
 
   return (
     <Container>
-      <label htmlFor="avatar">
-        {avatar_url || hasCover ? (
-          <img src={preview || avatar_url} alt="" />
+      <label htmlFor="banner">
+        {banner_url || hasCover ? (
+          <img src={preview || banner_url} alt="" />
         ) : (
-          <img
-            src={'https://api.adorable.io/avatars/50/abott@adorable.png'}
-            alt=""
-          />
+          <FaCamera size={20} color={'#999'} />
         )}
 
         <input
           type="file"
-          id="avatar"
+          id="banner"
           accept="image/*"
           data-file={file}
           ref={ref}

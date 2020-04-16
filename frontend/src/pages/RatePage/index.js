@@ -58,6 +58,7 @@ export default function RatePage({ match }) {
       const allVotesArray = await Promise.all(
         votesArray.map(async (vote) => {
           let response = await api.get(`user/info/${vote.userId}`);
+
           const PostInfo = { ...vote, ...response.data };
           if (userId === PostInfo.id) {
             setHasVoted(true);
@@ -65,6 +66,7 @@ export default function RatePage({ match }) {
           return PostInfo;
         })
       );
+      console.log(allVotesArray);
       setAllVotes(allVotesArray);
 
       //votação

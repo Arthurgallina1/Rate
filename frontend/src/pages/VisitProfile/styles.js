@@ -1,75 +1,117 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
-export const VisitContainer = styled.div`
-  /* border-radius: 10px; */
-  background: #fd0565;
+export const ContainerUpdate = styled.div`
+  background: #15202b;
   min-height: 100vh;
-  /* margin: 40px 10px; */
-  text-align: center;
-  /* box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.75); */
-  img {
-  }
-
-  h3 {
-    padding: 2px;
-    color: white;
-  }
-  h4 {
-    color: #ccc;
-  }
-  img {
-    height: 85px;
-    width: 85px;
-    margin-bottom: 5px;
-  }
-
-  p {
-    color: #ccc;
-    color: white;
-    padding: 3px;
-    font-size: 0.9rem;
-  }
-
-  strong {
-    color: #fffc00;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-  }
+  padding-bottom: 50px;
+`;
+export const ContainerBg = styled.div`
+  background: #15202b;
+  height: 150px;
 `;
 
-export const CardContainer = styled.div`
-  border-radius: 10px;
-  padding: 25px 0;
+export const Container = styled.div`
+  max-width: 600px;
+  background: #15202b;
+  /* margin: 50px auto; */
   display: flex;
   flex-flow: column wrap;
-  justify-content: start;
-  align-items: center;
-  background: #fd0565;
+  /* justify-content: center; */
+  /* align-items: center; */
+  .upper-box {
+    flex: 1;
+    align-self: stretch;
+    img {
+      position: relative;
+      left: 5%;
+      top: -45px;
+      height: 110px;
+      width: 110px;
+      border: 6px solid #15202b;
+      border-radius: 50%;
+    }
 
-  h2 {
-    color: white;
-    font-weight: 100;
-    line-height: 24px;
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
-    margin: 10px 0;
-    padding: 10px 15px 10px 15px;
-  }
-  .no-post {
-    color: white;
-    text-align: center;
-    h2 {
-      border: 0;
+    button {
+      position: relative;
+      right: -125px;
+      top: -75px;
+      background: transparent;
+      border: 1px solid rgb(29, 161, 242);
+      color: rgb(29, 161, 242);
+      height: 35px;
+      padding: 10px 25px;
+      border-radius: 9999px;
+      width: 110px;
+      font-size: 10px;
+
+      &:hover {
+        background: rgb(29, 161, 242);
+        color: white;
+      }
+    }
+    .middle-box {
+      position: relative;
+      top: -45px;
+      padding: 5px 25px;
+
+      h3 {
+        color: white;
+      }
+
+      h4 {
+        color: #8899a6;
+      }
+
+      span {
+        line-height: 1;
+        color: white;
+        font-size: 10px;
+      }
+
+      .lower-box {
+        margin-top: 15px;
+        color: #8899a6;
+        font-size: 12px;
+        strong {
+          color: white;
+        }
+      }
+
+      .posts {
+        text-align: center;
+
+        h3 {
+          color: #1da1f2;
+          strong {
+            border-bottom: 2px solid #1da1f2;
+            padding: 4px 20px;
+          }
+        }
+      }
     }
   }
-  .posts {
-    width: 100%;
-    padding: 10px 0;
-    text-align: center;
-    text-align: left;
+  hr {
+    border: 0;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.9);
+    margin: 10px 0 20px;
+  }
+  span {
+    color: #fb6f91;
+    align-self: flex-start;
+    margin: 0 0 10px;
+    font-weight: bold;
+  }
+
+  a {
+    color: #fff;
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 1;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 `;
