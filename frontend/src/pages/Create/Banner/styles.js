@@ -13,7 +13,8 @@ export const Container = styled.div`
     cursor: pointer;
 
     &:hover {
-      opacity: 0.7;
+      /* opacity: 0.7; */
+      opacity: ${(props) => (props.canBeEditted ? '1' : '0.7')};
     }
 
     img {

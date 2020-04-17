@@ -5,7 +5,7 @@ import api from '../../../utils/api';
 import { FaCamera } from 'react-icons/fa';
 
 import { Container } from './styles';
-export default function Banner({ banner_url }) {
+export default function Banner({ banner_url, canBeEditted }) {
   const { defaultValue, registerField } = useField('banner');
   const [hasCover, setHasCover] = useState(false);
   const [file, setFile] = useState(defaultValue && defaultValue.id);
@@ -44,15 +44,18 @@ export default function Banner({ banner_url }) {
         ) : (
           <FaCamera size={20} color={'#999'} />
         )}
-
-        <input
-          type="file"
-          id="banner"
-          accept="image/*"
-          data-file={file}
-          ref={ref}
-          onChange={handleChange}
-        />
+        {canBeEditted ? (
+          <input
+            type="file"
+            id="banner"
+            accept="image/*"
+            data-file={file}
+            ref={ref}
+            onChange={handleChange}
+          />
+        ) : (
+          ''
+        )}
       </label>
     </Container>
   );

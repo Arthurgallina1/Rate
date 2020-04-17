@@ -7,19 +7,35 @@ import api from '../../utils/api';
 import { UserContext } from '../../utils/userContext';
 
 export default function Overview() {
+  const [userProfile, setUserProfile] = useState('');
   const user = useSelector((state) => state.user.profile);
   const context = useContext(UserContext);
+  useEffect(() => {
+    async function getUserInfo() {
+      try {
+        const response = await api.get(`/user/info/${user.id}`);
+        setUserProfile(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getUserInfo();
+  }, []);
+
   return (
     <ContainerView>
       <ProfileCont>
         <aside>
           <img
-            src="https://api.adorable.io/avatars/50/abott@adorable.png"
+            src={
+              userProfile.avatar_url ||
+              'https://api.adorable.io/avatars/50/abott@adorable.png'
+            }
             alt=""
           />
 
-          <h3>{user.name}</h3>
-          <h4>{user.username}</h4>
+          <h3>{userProfile.name}</h3>
+          <h4>{userProfile.username}</h4>
 
           <Link to="/updateprofile">
             {' '}

@@ -70,7 +70,16 @@ module.exports = {
 
     const user = await connection('users')
       .where('username', username)
-      .select('id', 'name', 'email', 'username', 'password', 'createdAt')
+      .select(
+        'id',
+        'name',
+        'email',
+        'username',
+        'password',
+        'createdAt',
+        'avatar_url',
+        'bg_url'
+      )
       .first();
     if (!user) {
       return res.status(400).json({
@@ -104,7 +113,7 @@ module.exports = {
   async show(req, res) {
     const { id } = req.params;
     const user = await connection('users')
-      .select(['id', 'name', 'email', 'username', 'avatar_url'])
+      .select(['id', 'name', 'email', 'username', 'avatar_url', 'bg_url'])
       .where('id', id)
       .first();
     return res.status(200).json(user);

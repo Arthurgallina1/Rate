@@ -10,7 +10,20 @@ import { toast } from 'react-toastify';
 
 export default function UpdateProfile() {
   const profile = useSelector((state) => state.user.profile);
+  const [userProfile, setUserProfile] = useState('');
   const [file, setFile] = useState(null);
+  useEffect(() => {
+    async function getUserInfo() {
+      try {
+        const response = await api.get(`/user/info/${profile.id}`);
+        setUserProfile(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getUserInfo();
+  }, []);
+
   async function handleSubmit(data) {
     const dataFile = new FormData();
     dataFile.append('file', file);
@@ -24,22 +37,14 @@ export default function UpdateProfile() {
     }
   }
 
-  function handleChange(e) {
-    setFile(e.target.files[0]);
-  }
-
   return (
     <ContainerUpdate>
       <ContainerBg>
-        <Banner
-        // banner_url={'http://localhost:8000/files/a1587003579959.jpeg'}
-        />
+        <Banner banner_url={userProfile.bg_url} canBeEditted={true} />
       </ContainerBg>
       <Container>
-        <AvatarInput
-        // avatar_url={'http://localhost:8000/files/a1587003579959.jpeg'}
-        />
-        <Form initialData={profile} onSubmit={handleSubmit}>
+        <AvatarInput avatar_url={userProfile.avatar_url} />
+        <Form initialData={userProfile} onSubmit={handleSubmit}>
           <Input name="username" placeholder="Username" />
           <Input name="email" type="email" placeholder="E-mail" />
           <Textarea name="bio" type="bio" placeholder="Add your bio" />
@@ -56,12 +61,7 @@ export default function UpdateProfile() {
           type="password"
           placeholder="Confirm password"
         /> */}
-          <input
-            type="file"
-            id="avatar"
-            accept="image/*"
-            onChange={handleChange}
-          />
+
           <button>
             <strong>Update profile</strong>
           </button>
