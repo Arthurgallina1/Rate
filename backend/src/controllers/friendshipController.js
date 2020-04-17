@@ -13,6 +13,7 @@ module.exports = {
     const following = await connection('friendship')
       .select(
         'users.id',
+        'users.avatar_url',
         'friendship',
         'followed_id',
         'following_id',
@@ -38,6 +39,7 @@ module.exports = {
       .select(
         'friendship.id',
         'friendship',
+        'users.avatar_url',
         'followed_id',
         'following_id',
         'name',

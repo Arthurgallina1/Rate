@@ -17,6 +17,7 @@ module.exports = {
     const users = await connection('users')
       .select(
         'users.id',
+        'users.avatar_url',
         'name',
         'email',
         'username',

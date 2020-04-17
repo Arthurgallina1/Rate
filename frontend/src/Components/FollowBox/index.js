@@ -23,7 +23,6 @@ export default function FolowBox({ friend }) {
 
   function toProfile(id) {
     history.push(`profile/${id}`);
-    console.log(id);
   }
 
   const buttonLabel = friend.friendship ? 'UNFOLLOW' : 'FOLLOW';
@@ -31,7 +30,10 @@ export default function FolowBox({ friend }) {
     <Box>
       <div className="img-box">
         <img
-          src=" https://api.adorable.io/avatars/50/abott@adorable.png"
+          src={
+            friend.avatar_url ||
+            ' https://api.adorable.io/avatars/50/abott@adorable.png'
+          }
           alt=""
         />
       </div>

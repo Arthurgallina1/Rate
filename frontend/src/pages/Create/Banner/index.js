@@ -37,7 +37,7 @@ export default function Banner({ banner_url, canBeEditted }) {
   }
 
   return (
-    <Container>
+    <Container canBeEditted={canBeEditted}>
       <label htmlFor="banner">
         {banner_url || hasCover ? (
           <img src={preview || banner_url} alt="" />

@@ -33,17 +33,27 @@ export default function VisitProfile({ match }) {
   return (
     <ContainerUpdate>
       <ContainerBg>
-        <Banner banner_url={'http://localhost:8000/files/a1586544277143.png'} />
+        <Banner
+          banner_url={
+            userInfo.bg_url || 'http://localhost:8000/files/a1586544277143.png'
+          }
+        />
       </ContainerBg>
       <Container>
         <div className="upper-box">
-          <img src="http://localhost:8000/files/a1586544277143.png" alt="" />
+          <img
+            src={
+              userInfo.avatar_url ||
+              'http://localhost:8000/files/a1586544277143.png'
+            }
+            alt=""
+          />
           <button>
             <strong>FOLLOW</strong>
           </button>
           <div className="middle-box">
-            <h3>Arhtur Gallina</h3>
-            <h4>atg</h4>
+            <h3>{userInfo.name}</h3>
+            <h4>{userInfo.username}</h4>
             <br />
             <span>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque
