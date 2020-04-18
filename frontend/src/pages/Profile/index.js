@@ -6,7 +6,6 @@ import TabSection from '../Tabs';
 import { useSelector } from 'react-redux';
 
 export default function Profile() {
-  const profile = useSelector((state) => state.user.profile);
   return (
     <ProfileContainer>
       <Container>

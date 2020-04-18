@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   .react-tabs__tab-list {
     /* border-bottom: 0.5px solid #ccc; */
+    background: rgb(25, 39, 52);
     margin: 0;
   }
 

@@ -11,6 +11,7 @@ export const Container = styled.div`
     max-width: 1000px;
     margin: 50px;
     display: flex;
+    background: rgb(25, 39, 52);
  
     
     aside {
@@ -22,6 +23,7 @@ export const Container = styled.div`
         background: white;
         border-radius: 6px;
         padding: 15px 15px 25px 15px;
+        background: rgb(25, 39, 52);
         /* box-shadow: 0px 6px 5px 1px rgba(0,0,0,0.75); */
 
     }
@@ -94,7 +96,7 @@ export const Container = styled.div`
             box-shadow: none;
             p {
                 font-size: 12px;
-                color: #ccc;
+                color: #eee;
             } 
             h3 {
                 align-self: center;
@@ -104,7 +106,7 @@ export const Container = styled.div`
             }
             span {
                 align-self: center;
-                color: #ccc;
+                color: #eee;
             }
         }
 
@@ -141,7 +143,7 @@ export const Box = styled.div`
     font-size: 13px;
 
     padding: 2px 2px 10px 2px;
-    color: #ccc;
+    color: #eee;
   }
   svg {
     margin-right: 7px;
@@ -156,7 +158,7 @@ export const Box = styled.div`
 `;
 
 export const RightContainer = styled.div`
-  background: #fff;
+  background: rgb(25, 39, 52);
   border-radius: 6px;
   margin-left: 25px;
   box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75);
