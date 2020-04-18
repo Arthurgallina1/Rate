@@ -14,6 +14,10 @@ const routes = express.Router();
 const upload = multer(multerConfig);
 
 // routes.post('/user/register', authController.store);
+routes.get('/dockertest', (req, res) => {
+  res.json({ status: 'OK' });
+});
+
 routes.post('/user/test', userController.auth);
 routes.post('/user/register', userController.store);
 // routes.post('/user/auth', authController.auth);

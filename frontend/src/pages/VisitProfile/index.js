@@ -33,21 +33,11 @@ export default function VisitProfile({ match }) {
   return (
     <ContainerUpdate>
       <ContainerBg>
-        <Banner
-          banner_url={
-            userInfo.bg_url || 'http://localhost:8000/files/a1586544277143.png'
-          }
-        />
+        <Banner banner_url={userInfo.bg_url} />
       </ContainerBg>
       <Container>
         <div className="upper-box">
-          <img
-            src={
-              userInfo.avatar_url ||
-              'http://localhost:8000/files/a1586544277143.png'
-            }
-            alt=""
-          />
+          <img src={userInfo.avatar_url} alt="" />
           <button>
             <strong>FOLLOW</strong>
           </button>
