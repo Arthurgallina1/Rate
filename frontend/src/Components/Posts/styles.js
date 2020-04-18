@@ -1,33 +1,79 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Box = styled.div`
+  @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap');
   display: flex;
-  padding: 10px;
-  background: #0366d6;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  padding: 8px 0 0 0;
+  background: rgb(25, 39, 52);
+  font-family: 'Zilla Slab', serif !important;
 
-  img {
-    height: 60px;
-    width: 50px;
-    padding: 5px 5px;
-    border-radius: 50%;
-    border: 0px;
+  .img-box {
+    flex: 1;
+    img {
+      height: 50px !important;
+      width: 50px !important;
+      border: 1px solid white;
+      border-radius: 50%;
+    }
   }
-  h3 {
-    color: white;
-  }
-  h5 {
-    color: #ccc;
-  }
+
   div {
     padding: 5px 10px;
   }
 
-  p {
-    color: #db1616;
-    line-height: 1.5;
-    font-size: 12px;
-    font-weight: bold;
+  .button-box {
+    flex: 1;
+    button {
+      background: rgb(29, 161, 242);
+      border: 1px solid rgb(29, 161, 242);
+      color: white;
+      height: 30px;
+      padding: 0px 25px;
+      border-radius: 9999px;
+      width: 110px;
+      font-size: 9px;
+      margin: 0;
+
+      &:hover {
+        background: rgb(202, 32, 85);
+        border: 1px solid rgb(202, 32, 85);
+        color: white;
+      }
+    }
+  }
+
+  .follow-box-info {
+    margin-left: 3px;
+    padding: 5px;
+    margin-bottom: 6px;
+    flex: 5;
+    display: flex;
+    flex-flow: column wrap;
+    color: white;
+
+    p {
+      font-size: 14px;
+      line-height: 1.5;
+      cursor: pointer;
+      strong {
+        color: white;
+        &:hover {
+          color: rgb(29, 161, 242);
+        }
+      }
+      
+    }
+    h5 {
+      color: #888;
+    }
+    span {
+      color: white;
+      font-size: 9px;
+    }
+  }
+
+
   }
   a {
     color: #666;
@@ -49,11 +95,14 @@ export const Container = styled.div`
   button {
     margin: 20px 15px;
     width: 140px;
+    border: 1px solid #00ff37;
     height: 30px;
-    color: #24292e;
+    color: white;
     font-weight: 600;
-    background-color: #eff3f6;
+    background-color: #00ff37;
+    opacity: 0.9;
     font-size: 9px;
-    background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
   }
 `;
+
+export const RateBox = styled.div``;

@@ -1,29 +1,36 @@
 import React from 'react';
-import { Container } from './styles';
+import { Box } from './styles';
 import { Link } from 'react-router-dom';
 import { parseISO, formatDistance } from 'date-fns';
 import timeleft_formatted from '../../utils/dates';
 
-export default function Posts({ duration, title, path, description, postId }) {
-  const isoDuration = parseISO(duration);
+export default function Posts({ post }) {
+  const isoDuration = parseISO(post.duration);
   const timeLeft = formatDistance(isoDuration, new Date(), {
     addSuffix: true,
   });
+
   return (
-    <Container>
-      <img
-        src={path || 'https://api.adorable.io/avatars/50/abott@adorable.png'}
-        alt=""
-      />
-      <div className="post-box">
-        <h3>{title}</h3>
-        <h5>{description}</h5>
-        <br />
-        <p>Expires {timeLeft}</p>
+    <Box>
+      <div className="img-box">
+        <img
+          src={
+            post.path ||
+            ' https://api.adorable.io/avatars/50/abott@adorable.png'
+          }
+          alt=""
+        />
       </div>
-      <Link to={`/rate/${postId}`}>
+      <div className="follow-box-info">
+        <strong>{post.title}</strong>
+        <h5>{post.description}</h5>
+        <span>Expires in {timeLeft}</span>
+      </div>
+      <Link to={`/rate/${post._id}`}>
         <button>RATE IT</button>
       </Link>
-    </Container>
+    </Box>
   );
 }
+
+//      <Link to={`/rate/${postId}`}>
