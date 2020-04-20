@@ -22,7 +22,7 @@ export default function MyPosts() {
   return (
     <Container>
       {myPosts.length > 0 ? (
-        myPosts.map((post) => <Post key={post.id} post={post} />)
+        myPosts.map((post) => <Post key={post._id} post={post} />)
       ) : (
         <div className="no-posts-msg">
           <h3>You don't have any posts yet!</h3>

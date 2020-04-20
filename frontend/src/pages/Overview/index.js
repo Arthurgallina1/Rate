@@ -5,16 +5,20 @@ import { useSelector } from 'react-redux';
 import { MdPinDrop } from 'react-icons/md';
 import api from '../../utils/api';
 import { UserContext } from '../../utils/userContext';
+import { parseISO, format } from 'date-fns';
 
 export default function Overview() {
   const [userProfile, setUserProfile] = useState('');
   const user = useSelector((state) => state.user.profile);
+  const [joined, setJoined] = useState('');
   const context = useContext(UserContext);
   useEffect(() => {
     async function getUserInfo() {
       try {
         const response = await api.get(`/user/info/${user.id}`);
         setUserProfile(response.data);
+        console.log(context);
+        setJoined(format(parseISO(response.data.createdAt), "MMMM',' d"));
       } catch (err) {
         console.log(err);
       }
@@ -56,14 +60,14 @@ export default function Overview() {
         <hr />
         <br />
         <h4>
-          Joined <strong>July 2019</strong>{' '}
+          Joined on <strong>{joined}</strong>{' '}
         </h4>
 
         <h4>
           <strong>{context.post.length}</strong> Posts
         </h4>
       </ProfileCont>
-      {/* <Container>
+      <Container>
         <h3>Your Posts</h3>
         <hr />
         <h4>
@@ -72,7 +76,7 @@ export default function Overview() {
         <h4>
           <strong>9.3 </strong>Best rating
         </h4>
-      </Container> */}
+      </Container>
       <Container>{/* <renderLineChart /> */}</Container>
     </ContainerView>
   );

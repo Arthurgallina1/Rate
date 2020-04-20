@@ -5,10 +5,7 @@ export default function RateBox({ rateInfo }) {
   return (
     <Box>
       <div className="img-box">
-        <img
-          src=" https://api.adorable.io/avatars/50/abott@adorable.png"
-          alt=""
-        />
+        <img src={rateInfo.avatar_url} alt="" />
       </div>
       <div className="follow-box-info">
         <strong>{rateInfo.name}</strong>

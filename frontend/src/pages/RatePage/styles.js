@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { lighten } from 'polished';
 
 export const Container = styled.div`
   /* cc1616 */
@@ -32,7 +33,7 @@ export const Box = styled.div`
   /* border: 1px solid white; */
   max-width: 760px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0px 20px;
   position: relative;
   top: 25px;
   color: white;
@@ -94,11 +95,8 @@ export const UpperContainer = styled.div`
 
 export const RatingDiv = styled.div`
   padding-top: 15px;
-  border-top: 1px solid white;
+  /* border-top: 1px solid white; */
 
-  input {
-    width: 100%;
-  }
   button {
     border: 0;
     background: #fd0565;
@@ -116,12 +114,15 @@ export const RatingDiv = styled.div`
   }
   input {
     margin: 10px 0;
-    color: #fd0565;
-    height: 50px;
-    &:focus {
-      border: 2px solid #fd0565;
-      border-radius: 3px;
-    }
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    background: ${lighten('0.05', '#192734')};
+    border: 0;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 5px 5px 0 0;
+    height: 40px;
+    padding: 5px;
   }
 
   span {
@@ -139,4 +140,23 @@ export const RatingDiv = styled.div`
 export const Comments = styled.div`
   margin: 10px 0;
   max-width: 960px;
+`;
+
+export const UserBox = styled.div`
+  display: flex;
+  padding: 15px;
+  img {
+    height: 60px !important;
+    width: 60px !important;
+    border: 1px solid #eee;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+  h4 {
+    color: #ccc;
+    font-weight: bold;
+  }
+  h5 {
+    color: #999;
+  }
 `;

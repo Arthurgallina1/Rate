@@ -114,7 +114,15 @@ module.exports = {
   async show(req, res) {
     const { id } = req.params;
     const user = await connection('users')
-      .select(['id', 'name', 'email', 'username', 'avatar_url', 'bg_url'])
+      .select([
+        'id',
+        'name',
+        'email',
+        'username',
+        'avatar_url',
+        'bg_url',
+        'createdAt',
+      ])
       .where('id', id)
       .first();
     return res.status(200).json(user);

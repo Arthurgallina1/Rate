@@ -10,7 +10,7 @@ const mongoose = require('mongoose');
 
 // mongodb+srv://${uDB}:${pDB}@clustermevn-cztsy.mongodb.net/dev?retryWrites=true&w=majority
 mongoose.connect(
-  `mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false`,
+  `mongodb://localhost:27017/rate`,
   // mongoose.connect(`mongodb+srv://${uDB}:${pDB}@clustermevn-cztsy.mongodb.net/dev?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
@@ -29,4 +29,6 @@ app.use(
 app.use(cors());
 app.use(routes);
 // app.listen(8000, '0.0.0.0');
-app.listen(port);
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
