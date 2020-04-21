@@ -20,6 +20,7 @@ export function* signIn({ payload }) {
 
     history.push('/dashboard');
   } catch (err) {
+    console.log(err);
     toast.error('Login failed, please check your credentials.');
     yield put(signFailure());
   }
