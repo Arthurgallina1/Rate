@@ -17,7 +17,6 @@ export default function Overview() {
       try {
         const response = await api.get(`/user/info/${user.id}`);
         setUserProfile(response.data);
-        console.log(context);
         setJoined(format(parseISO(response.data.createdAt), "MMMM',' d"));
       } catch (err) {
         console.log(err);

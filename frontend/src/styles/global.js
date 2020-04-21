@@ -46,4 +46,8 @@ export default createGlobalStyle`
         cursor: pointer;
     }
 
+    .Toastify__toast--success {
+        background: rgb(29,161,242);
+    }
+
 `;
