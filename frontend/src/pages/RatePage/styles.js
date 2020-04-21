@@ -19,15 +19,6 @@ export const Slider = styled.div`
     width: 100%;
     /* box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75); */
   }
-  /* .container-imager::before {
-    content: '<';
-    position: relative;
-    left: -50px;
-    top: -50px;
-    font-size: 22px;
-    font-weight: bold;
-    color: white;
-  } */
 `;
 
 export const Box = styled.div`
@@ -104,6 +95,7 @@ export const UpperContainer = styled.div`
 
   .lower-container {
     padding: 15px;
+    margin-top: 50px;
     h2 {
       margin-top: 5px;
     }

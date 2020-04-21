@@ -111,7 +111,14 @@ export default function RatePage({ match }) {
           <UpperContainer>
             <div className="post-cont">
               <Slider>
-                <ImageSlider path={[post.path]}></ImageSlider>
+                <ImageSlider
+                  path={post.path}
+                  // path={[
+                  //   'https://api.adorable.io/avatars/50/abott@adorable.png',
+                  //   'https://api.adorable.io/avatars/50/pedro@adorable.png',
+                  //   'https://api.adorable.io/avatars/50/thiago@adorable.png',
+                  // ]}
+                ></ImageSlider>
               </Slider>
               <div className="lower-container">
                 <div>
@@ -123,7 +130,7 @@ export default function RatePage({ match }) {
                     emptySymbol={<img src={SVGIcon} className="icon" />}
                     fullSymbol={<img src={SVGIconFull} className="icon-full" />}
                   />
-                  <h4>{rate}/10</h4>
+                  <h4>{!isNaN(rate) ? { rate } / 10 : ''}</h4>
                 </div>
                 <h2>{post.title}</h2>
                 <h5>{post.description}</h5>

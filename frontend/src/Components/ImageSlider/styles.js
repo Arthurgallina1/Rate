@@ -14,17 +14,28 @@ span {
     &:hover {
         opacity: 1;
     }
+    svg {
+      path: black;
+    }
   }
+
 `;
 
 const inactiveStyles = `
     // display: none; 
-    opacity: 0.3;
+    opacity: 0;
     z-index: 1;   
-    margin-left: 100px;
+    // margin-left: 100px;
     span{ 
         display: none;
     }
+`;
+
+export const SliderCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 100%;
 `;
 
 export const Slider = styled.div`
@@ -34,9 +45,16 @@ export const Slider = styled.div`
   margin-bottom: 10px;
 
   .slider-div {
-    font-size: 20px;
+    width: 100%;
+    flex: 1;
+    font-size: 34px;
     color: #ccc;
     text-align: center;
+    margin-bottom: 15px;
+
+    small {
+      padding: 0 5px;
+    }
   }
 
   &:active {

@@ -69,7 +69,9 @@ export const Box = styled.div`
     }
     span {
       color: white;
-      font-size: 9px;
+      font-size: 11px;
+      color: #ff0000;
+      font-weight: bold;
     }
   }
 

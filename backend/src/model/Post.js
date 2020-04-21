@@ -5,10 +5,10 @@ const PostSchema = new Schema({
     type: String,
   },
   filename: {
-    type: String,
+    type: Array,
   },
   path: {
-    type: String,
+    type: Array,
   },
   duration: {
     type: Date,

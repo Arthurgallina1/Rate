@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Slider } from './styles';
+import { FaRegCircle } from 'react-icons/fa';
+import { GiPlainCircle } from 'react-icons/gi';
 const default_props = {
   duration: 5000,
   transitionDuration: 500,
@@ -26,8 +28,12 @@ export default function ImageSlider({
         return (
           <Slider key={i} active={act}>
             <img src={img} alt="" />
-            <div className="slider-div" onClick={handleClick}>
-              {'<'} {'>'}
+            <div className="slider-div">
+              {path.map((file, i) => (
+                <small onClick={handleClick}>
+                  <FaRegCircle size={12} color={'#ccc'} />
+                </small>
+              ))}
             </div>
             {/* <span onClick={handleClick}>{'<'}</span> */}
           </Slider>
