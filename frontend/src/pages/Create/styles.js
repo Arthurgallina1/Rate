@@ -21,27 +21,31 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
 
-    Input {
-      background: rgba(0, 0, 0, 0.8);
-      color: white;
-      padding: 10px;
-      width: 100%;
+    Input,
+    select,
+    textarea {
+      background: #24323f;
       border: 0;
-      border-radius: 5px;
-      margin: 0 0 20px 0;
-      transition: all 1s linear;
-
-      /* &:focus {
-                border: 2px solid #ff22cc;
-            }
-             */
+      border-bottom-color: currentcolor;
+      border-bottom-style: none;
+      border-bottom-width: 0px;
+      border-radius: 4px 4px 2px 2px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+      height: 44px;
+      padding: 5px;
+      color: white;
+      font-weight: 900;
+      margin: 0 0 30px;
     }
 
     label {
       font-weight: bold;
     }
-
     textarea {
+      height: 180px;
+    }
+
+    /* textarea {
       background: rgba(0, 0, 0, 0.8);
       color: white;
       padding: 10px;
@@ -60,7 +64,7 @@ export const Container = styled.div`
       border: 0;
       border-radius: 5px;
       margin: 0 0 20px 0;
-    }
+    } */
 
     button {
       background: rgba(0, 0, 0, 0.8);

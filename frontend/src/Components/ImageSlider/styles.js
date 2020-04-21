@@ -30,6 +30,14 @@ const inactiveStyles = `
 export const Slider = styled.div`
   position: absolute;
   transition: all 0.5s linear;
+  width: 100%;
+  margin-bottom: 10px;
+
+  .slider-div {
+    font-size: 20px;
+    color: #ccc;
+    text-align: center;
+  }
 
   &:active {
     ${activeStyles}

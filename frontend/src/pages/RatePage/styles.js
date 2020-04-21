@@ -5,20 +5,21 @@ export const Container = styled.div`
   /* cc1616 */
   width: 100%;
   background: rgb(25, 39, 52);
+  /* background: white; */
   height: 200vh;
 `;
 export const Slider = styled.div`
-  height: 180px;
+  height: 280px;
   width: 100%;
   display: flex;
-  /* justify-content: center; */
+  margin-bottom: 20px;
 
   img {
-    height: 160px;
-    width: 160px;
-    box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75);
+    height: 280px;
+    width: 100%;
+    /* box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75); */
   }
-  .container-imager::before {
+  /* .container-imager::before {
     content: '<';
     position: relative;
     left: -50px;
@@ -26,23 +27,25 @@ export const Slider = styled.div`
     font-size: 22px;
     font-weight: bold;
     color: white;
-  }
+  } */
 `;
 
 export const Box = styled.div`
   /* border: 1px solid white; */
   max-width: 760px;
   margin: 0 auto;
-  padding: 0px 20px;
+  width: 100%;
+  /* padding: 0px 20px; */
   position: relative;
-  top: 25px;
+  top: 15px;
   color: white;
   background: rgb(25, 39, 52);
+  /* background: gray; */
   /* box-shadow: 0px 6px 5px 1px rgba(0, 0, 0, 0.75); */
   /* border-radius: 5px; */
 
   @media (max-width: 600px) {
-    max-width: 400px;
+    /* max-width: 400px; */
     font-size: 10px;
 
     p {
@@ -76,7 +79,14 @@ export const Box = styled.div`
 
 export const UpperContainer = styled.div`
   display: flex;
+  background: white;
   justify-content: center;
+
+  .post-cont {
+    width: 100%;
+    padding: 0;
+    background: rgb(25, 39, 52);
+  }
 
   button {
     border: 0;
@@ -89,6 +99,19 @@ export const UpperContainer = styled.div`
     transition: all 0.3s linear;
     &:hover {
       color: white;
+    }
+  }
+
+  .lower-container {
+    padding: 15px;
+    h2 {
+      margin-top: 5px;
+    }
+
+    h5 {
+      padding: 0;
+      color: #aaa;
+      font-weight: lighter;
     }
   }
 `;
@@ -144,19 +167,23 @@ export const Comments = styled.div`
 
 export const UserBox = styled.div`
   display: flex;
-  padding: 15px;
+  padding: 0px 15px 10px 15px;
+  .info {
+    margin-left: 3px;
+  }
   img {
-    height: 60px !important;
-    width: 60px !important;
+    height: 40px !important;
+    width: 40px !important;
     border: 1px solid #eee;
     margin-right: 10px;
     border-radius: 50%;
   }
   h4 {
-    color: #ccc;
+    color: #fff;
+    font-size: 13px;
     font-weight: bold;
   }
-  h5 {
-    color: #999;
+  span {
+    color: #ccc;
   }
 `;

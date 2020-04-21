@@ -48,7 +48,12 @@ export default function CreatePost() {
       <Form onSubmit={handleSubmit}>
         {/* <label htmlFor="title">Post title</label> */}
         <Input name="title" type="text" placeholder="Post title" />
-        <Select name="duration" options={options} placeholder="Duration" />
+        <Select
+          name="duration"
+          options={options}
+          className="custom-select"
+          placeholder="Duration"
+        />
         <Input
           name="description"
           multiline

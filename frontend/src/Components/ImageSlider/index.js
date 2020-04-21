@@ -25,8 +25,11 @@ export default function ImageSlider({
         const act = i == active ? true : false;
         return (
           <Slider key={i} active={act}>
-            <span onClick={handleClick}>{'<'}</span>
             <img src={img} alt="" />
+            <div className="slider-div" onClick={handleClick}>
+              {'<'} {'>'}
+            </div>
+            {/* <span onClick={handleClick}>{'<'}</span> */}
           </Slider>
         );
       })}

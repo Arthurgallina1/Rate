@@ -109,23 +109,25 @@ export default function RatePage({ match }) {
             </div>
           </UserBox>
           <UpperContainer>
-            <div className="">
+            <div className="post-cont">
               <Slider>
                 <ImageSlider path={[post.path]}></ImageSlider>
               </Slider>
-              <h2>{post.title}</h2>
-              <h5>{post.description}</h5>
-              <div>
-                <Rating
-                  stop={10}
-                  initialRating={rate}
-                  readonly={true}
-                  quiet={true}
-                  emptySymbol={<img src={SVGIcon} className="icon" />}
-                  fullSymbol={<img src={SVGIconFull} className="icon-full" />}
-                />
+              <div className="lower-container">
+                <div>
+                  <Rating
+                    stop={10}
+                    initialRating={rate}
+                    readonly={true}
+                    quiet={true}
+                    emptySymbol={<img src={SVGIcon} className="icon" />}
+                    fullSymbol={<img src={SVGIconFull} className="icon-full" />}
+                  />
+                  <h4>{rate}/10</h4>
+                </div>
+                <h2>{post.title}</h2>
+                <h5>{post.description}</h5>
               </div>
-              <h4>{rate}/10</h4>
             </div>
 
             <div className="">
