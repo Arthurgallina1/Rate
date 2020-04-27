@@ -125,7 +125,21 @@ module.exports = {
       ])
       .where('id', id)
       .first();
-    return res.status(200).json(user);
+
+    const [followedCount] = await connection('friendship')
+      .count('followed_id')
+      .where('followed_id', id);
+
+    const [followingCount] = await connection('friendship')
+      .count('following_id')
+      .where('following_id', id);
+
+    const resObj = {
+      ...user,
+      followedCount: followedCount.count,
+      followingCount: followingCount.count,
+    };
+    return res.status(200).json(resObj);
   },
 
   async update(req, res) {

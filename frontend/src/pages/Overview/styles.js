@@ -8,16 +8,22 @@ export const Container = styled.div`
   hr {
     border: 0;
     height: 1px;
-    background: #333;
+    background: #ccc;
     margin: 0px 0px 10px 0px;
   }
 
   h3 {
-    color: black;
+    color: white;
     padding: 0 0 4px 0;
+    border: 0;
   }
   h4 {
     padding: 1px 0 2px 0;
+
+    strong {
+      font-weight: 700;
+      color: white;
+    }
   }
 
   strong {
@@ -33,6 +39,10 @@ export const ProfileCont = styled.div`
   }
   h4 {
     align-self: center;
+    strong {
+      font-weight: 700;
+      color: white;
+    }
   }
 
   img {

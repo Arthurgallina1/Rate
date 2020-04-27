@@ -30,7 +30,7 @@ export default function ImageSlider({
             <img src={img} alt="" />
             <div className="slider-div">
               {path.map((file, i) => (
-                <small onClick={handleClick}>
+                <small key={i} onClick={handleClick}>
                   <FaRegCircle size={12} color={'#ccc'} />
                 </small>
               ))}

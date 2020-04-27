@@ -76,6 +76,7 @@ export default function RatePage({ match }) {
           return PostInfo;
         })
       );
+      console.log(votesArray);
       setAllVotes(allVotesArray);
 
       //votação
@@ -85,6 +86,7 @@ export default function RatePage({ match }) {
       const avgRate = Number(
         votesArray.reduce((acc, vote) => acc + vote.rate, 0) / votesArray.length
       );
+      console.log(avgRate);
       setRate(avgRate);
       setLoading(false);
     }
@@ -130,7 +132,16 @@ export default function RatePage({ match }) {
                     emptySymbol={<img src={SVGIcon} className="icon" />}
                     fullSymbol={<img src={SVGIconFull} className="icon-full" />}
                   />
-                  <h4>{!isNaN(rate) ? { rate } / 10 : ''}</h4>
+                  <h4>
+                    {!isNaN(rate) ? (
+                      <div className="div">
+                        {rate}
+                        <small> /10</small>
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </h4>
                 </div>
                 <h2>{post.title}</h2>
                 <h5>{post.description}</h5>
@@ -164,7 +175,7 @@ export default function RatePage({ match }) {
           )}
           <Comments>
             {allVotes.map((vote) => {
-              return <RateBox key={vote.userId} rateInfo={vote} />;
+              return <RateBox key={vote.id} rateInfo={vote} />;
             })}
           </Comments>
         </Box>

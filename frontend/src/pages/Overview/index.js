@@ -16,6 +16,7 @@ export default function Overview() {
     async function getUserInfo() {
       try {
         const response = await api.get(`/user/info/${user.id}`);
+        console.log(response.data);
         setUserProfile(response.data);
         setJoined(format(parseISO(response.data.createdAt), "MMMM',' d"));
       } catch (err) {
@@ -61,7 +62,10 @@ export default function Overview() {
         <h4>
           Joined on <strong>{joined}</strong>{' '}
         </h4>
-
+        <h4>
+          <strong>{userProfile.followedCount}</strong> Followers |{' '}
+          <strong>{userProfile.followingCount}</strong> Following
+        </h4>
         <h4>
           <strong>{context.post.length}</strong> Posts
         </h4>
